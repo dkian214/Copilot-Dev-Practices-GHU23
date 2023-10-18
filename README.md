@@ -29,7 +29,7 @@ Before joining the workshop, there are a few items that you will need to install
 <p align="center"><img width="500" alt="image" src="https://github.com/dhruvg20-copilot/Copilot-Dev-Practices/assets/20143038/48820676-2f58-4dc9-bbaf-7cb5e0b52536"></p>
 &nbsp;&nbsp;&nbsp;4. Give the new project the name same as the current Project with "-[your-github-handle]". 
 <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Example: Copilot-Dev-Practices-dhruvg20
-<p align="center"> TODO-9Oct23: Image with Universe Org and Repo Name, showing creation from Template</p>
+<br/><br/><p align="center"><img width="372" alt="image" src="https://github.com/dhruvg20-copilot/Copilot-Dev-Practices/assets/20143038/455275ab-a6dc-48b2-b31d-70bc704861b9"></p>
 &nbsp;&nbsp;&nbsp;5. Once you have created your Repository. Go ahead and create a new Codespaces by click the below seen "+" sign.
 <p align="center"><img width="500" alt="image" src="https://github.com/dhruvg20-copilot/Copilot-Dev-Practices/assets/20143038/f9c15e9f-4b68-4589-8b3b-92510a4b37ed"></p>
 &nbsp;&nbsp;&nbsp;6. Please go through workshop details -
