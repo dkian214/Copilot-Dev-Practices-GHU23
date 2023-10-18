@@ -1,0 +1,89 @@
+
+echo -e 'eval "$(github-copilot-cli alias -- "$0")"' >> ~/.bashrc
+echo -e 'eval "$(github-copilot-cli alias -- "$0")"' >> ~/.zshrc
+
+code ~/.bashrc
+code ~/.zshrc
+
+sudo code ~/.bashrc
+sudo code ~/.zshrc
+
+mongoimport <options> <connection-string> <file>
+
+sudo service mongodb start
+
+mongoimport --collection=listingsAndReviews mongodb://127.0.0.1:27017/sample_airbnb sample_airbnb.json
+
+mongoimport --collection='listingsAndReviews' --file='sample_airbnb.json' --uri 'mongodb://127.0.0.1:27017/sample_airbnb'
+
+mongodb://127.0.0.1:27017/sample_airbnb
+
+export PATH=$PATH:/workspaces/Universe23-Proj1-MEN/mongodb-database-tools/bin
+
+tar -xvzf
+
+
+
+mongoexport --collection=<coll> <options> <connection-string>
+
+mongodb://127.0.0.1:27017/ghApp
+
+
+mongoexport --collection=listingsAndReviews -d=sample_airbnb -o=sample_airbnb.json
+
+mongoexport --collection=listingsAndReviews -d=sample_airbnb -o=sample_airbnb-1000.json --limit=1000
+mongoexport --collection=companies -d=sample_training -o=companies-1000.json --limit=1000
+
+
+extract-mongo-schema -d "mongodb://localhost:3001/meteor" -o schema.json
+
+
+export DB="sample_mflix"
+export COLLECTION="movies"
+echo "DB="$DB
+echo "COLLECTION="$COLLECTION
+mongoexport --collection="$COLLECTION" -d="$DB" -o="$COLLECTION".json
+mongoexport --collection="$COLLECTION" -d="$DB" -o="$COLLECTION"-1000.json --limit=1000
+
+
+extract-mongo-schema -d "mongodb://localhost:27017/$DB" -o $DB-schema.json
+extract-mongo-schema -d "mongodb://localhost:27017/$DB" -c "$COLLECTION" -o "$COLLECTION"-schema.json
+
+Hong Kong IP Address: 8.210.96.219
+Porta Portugal: 188.83.242.122
+Rio De Janeiro, BR: 200.20.0.88
+Barcelona, Spain: 2.152.105.111
+Beyoglu, Turkey:78.135.85.96
+
+Manhattan IP Address: 72.229.28.185
+New York City IP Address: 159.102.181.2
+Delhi: 103.48.198.141
+
+export PORT=8080
+export PORT=3000
+sudo kill -9 "sudo lsof -t -i:$PORT"
+
+git remote set-url origin https://github.com/dhruvg20-copilot/Copilot-Dev-Practices.git
+
+
+
+
+export db="sample_airbnb"
+export collection="listingsAndReviews"
+export file="./mongodb-dataset/sample_airbnb.json"
+echo $db
+echo $collection
+echo $file
+export uri="mongodb://127.0.0.1:27017/sample_airbnb"
+?? How to import into Mongodb
+?? mongodb import db=$db, collection=$collection, file=$file and uri=$uri
+?? mongodb import db=$db, collection=$collection and file=$file
+
+mongo sample_airbnb --eval "printjson(db.dropDatabase())"
+mongoimport --collection='listingsAndReviews' --file='mongodb-dataset/sample_airbnb.json' --uri 'mongodb://127.0.0.1:27017/sample_airbnb'
+
+?? mongodb drop db sample_airbnb
+
+first minify the response.json, and then use the json data as string input to Put request to http://localhost:8080/api/model/102995
+
+find . -name '*.js' | xargs wc -l | sort -hr
