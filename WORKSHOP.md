@@ -12,7 +12,17 @@
     7. [Investigate backend URL 404 error](investigate-backend-url-404-error)
     8. [Fixing backend URL in code](fixing-backend-url-in-code)
     9. [Learn activity objectives and approach](#learn-activity-objectives-and-approach)
-6. [Workshop's Copilot Prompts](#workshops-copilot-prompts)
+5. [Activity 2: New Feature/Requirement](#activity-2-new-featurerequirement)
+    1. [Getting activity summary](#getting-activity-summary)
+    2. [Identify library and generate initial code](#identify-library-and-generate-initial-code)
+    3. [Update code in IPLocation.js](#update-code-in-iplocationjs)
+    4. [Adding doc in IPLocation.js](#adding-doc-in-iplocationjs)
+    5. [Explain code in model.controller.js](#explain-code-in-modelcontrollerjs)
+    6. [Update http-common.js to pass IP](#update-http-commonjs-to-pass-ip)
+    7. [Refresh site](#refresh-site)
+    8. [Run script to create PR](#run-script-to-create-pr)
+    9. [Generate PR description summary](#generate-pr-description-summary)
+7. [Workshop's Copilot Prompts](#workshops-copilot-prompts)
 
 
 <hr/>
@@ -435,9 +445,249 @@ In Section Workshop's Different Developer Activities, summarise Activity 1 in bu
 ```
 In Section Workshop's Different Developer Activities, Activity 1, summarise the fix / requirement for Activity 1 in bullet points?
 ```
+
+Continue with the following two questions. Keep 
+
 ```
 What are different Frontend React Paths available?
 ```
 ```
 What are different backend endpoints exposed and unexposed?
 ```
+
+# <h1 align="center">Activity 2: New Feature/Requirement</h1>
+
+## Getting activity summary
+
+In Copilot Chat Browser, select `WORKSHOP.md` then ask 
+```
+Can you list all the bullet points from Activity 2?
+```
+You will find that `IP2Location` is to be used, also `Local Geo Location Database` is available for this workshop. We already have put placeholder for you, under the `/backend/geolocation` to build the code and local geolocation database being available.
+
+Let's build with Copilot in Codespaces
+
+## Identify library and generate initial code
+
+In Codespaces, use Copilot Chat(IDE) to start exploring code. We'd like to get some solid ground first:
+```
+Share example nodejs geo location packages?
+```
+Chances are that Copilot Chat does not tell anything about IP2Location, let's try another one specific:
+```
+Does npm have packages using IP2LOCATION?
+```
+This time, Copilot Chat tells us that `ip2location-nodejs` is available, and it is able to query IP geolocation information from a local BIN database. Let's see if we can get more details from Copilot Chat:
+```
+From ip2location NodeJs - Query geolocation information from Local BIN database
+```
+Copilot Chat would return sample code along with explanation. Let's take the sample code and update `./backend/geolocation/test.js` to begin with
+```Javascript
+const IP2Location = require("ip2location-nodejs");
+
+// Load the BIN database file
+const ip2location = new IP2Location("path/to/database.bin");
+
+// Query the geolocation information for an IP address
+const ip = "8.8.8.8";
+const result = ip2location.lookup(ip);
+
+// Print the results
+console.log(result);
+```
+
+## Improve Code to function
+
+We'd like to get more how-tos in the next step, and it's time find some documentation about `IP2Location`. Ask Copilot Chat:
+```
+Share the link to npm ip2location-nodejs documentation
+```
+You should get the link https://www.npmjs.com/package/ip2location-nodejs, now click and open in a new tab.
+
+In the section `Developer Documentation`, click on https://ip2location-nodejs.readthedocs.io/en/latest/index.html
+
+Here we found a very good example to [Query gelocation information from BIN database](https://ip2location-nodejs.readthedocs.io/en/latest/quickstart.html#query-geolocation-information-from-bin-database), copy this code an update `./geolocation/test.js`
+
+You may notice that `ip2location.open` is hitting a file path, we need to replace `./DB26.BIN` with an actual file in our project, which is `.backend/geolocation/IP2LOCATION-LITE-DB3.BIN` inside the repo. Update accordingly. 
+
+You final code should look like below:
+```javascript
+const {IP2Location} = require("ip2location-nodejs");
+
+let ip2location = new IP2Location();
+
+ip2location.open("./geolocation/IP2LOCATION-LITE-DB3.BIN");
+
+testip = ['8.8.8.8', '2404:6800:4001:c01::67'];
+
+for (var x = 0; x < testip.length; x++) {
+	result = ip2location.getAll(testip[x]);
+	for (var key in result) {
+		console.log(key + ": " + result[key]);
+	}
+	console.log("--------------------------------------------------------------");
+}
+
+ip2location.close();
+```
+
+## Run the test and save result
+
+## Update code in IPLocation.js
+
+While leaving the file `.backend/geolocation/test.js` open, find `.backend/geolocation/IP2Location.js` and open in Codespaces
+
+The file should have code look like below
+```javascript
+// Import the IP2Location module
+const { IP2Location } = require("ip2location-nodejs");
+
+// Create a new IP2Location object
+const ip2location = new IP2Location();
+ip2location.open("./geolocation/IP2LOCATION-LITE-DB3.BIN");
+
+// Export a function for IP geolocation
+module.exports.ipLoc = function (IP) {
+    // Define function-specific variables
+    const _func = "ipLoc";
+    const debug = true;
+    let result, returnObj;
+
+    // Log debug information
+    if (debug) {
+        console.log(`${_func}: entry`);
+    }
+
+    try {        
+        {
+            //START:TODO - GeoLocation Logic to Implement
+
+            
+            //END:TODO
+        }        
+
+    } catch (err) {
+        // Log any errors that occur
+        console.log(`${_func}: error -> ${err}`);
+    }
+};
+```
+
+You will see a code block `START:TODO` and `END:TODO`, let's start coding with Copilot prompts. Remove these comment, then start typing below
+```
+//Find the geolocation using the IP input from the local file, and return ip, country and city
+```
+
+Press `ENTER`, Use Copilot will start generating code, press `TAB` to accept, then `ENTER` to next line. You should end up this part like below
+```javascript
+    try {        
+        {
+            //Find the geolocation using the IP input from the local file, and return ip, country and city
+            result = ip2location.getAll(IP);
+            returnObj = {
+                ip: result.ip,
+                country: result.country_short,
+                city: result.city
+            };
+        }        
+
+    } catch (err) {
+        // Log any errors that occur
+        console.log(`${_func}: error -> ${err}`);
+    }
+```
+
+## Adding doc in IPLocation.js
+
+Brilliant! We got some code, but before we move to next, let's make `IPLocation.js` better by adding some docs.
+
+It's a boring task right? Let's see what Copilot can do for you
+
+Stay on `IPLocation.js`, click line 1. Then type the following key combinations:
+- On `Mac`: Key in `Cmd+I`
+- On `Windows`: TODO
+
+This is the shortcut to command Copilot 💻! Now type `/doc` and `ENTER`
+
+![Screenshot 2023-10-25 at 1 17 58 am](https://github.com/dhruvg20-copilot/Copilot-Dev-Practices/assets/61316020/ae99b1b5-c899-4b78-a3b1-e074a0117ae1)
+
+Wooa! Copilot generates some docs for you based on the new code we just added. It also asks for your review. Click `Accept` button. 
+
+![Screenshot 2023-10-25 at 1 23 26 am](https://github.com/dhruvg20-copilot/Copilot-Dev-Practices/assets/61316020/68a411e4-fe22-45be-942b-aabee0f7492a)
+
+You final version of `IPLocation.js`
+
+```javascript
+// Import the IP2Location module
+const { IP2Location } = require("ip2location-nodejs");
+
+/**
+ * Creates a new IP2Location object and exports a function for IP geolocation.
+ * @module IP2Location
+ */
+
+// Create a new IP2Location object
+const ip2location = new IP2Location();
+ip2location.open("./geolocation/IP2LOCATION-LITE-DB3.BIN");
+
+/**
+ * Returns the geolocation information for a given IP address.
+ * @function
+ * @param {string} IP - The IP address to geolocate.
+ * @returns {Object} An object containing the IP address, country, and city.
+ */
+module.exports.ipLoc = function (IP) {
+    // Define function-specific variables
+    const _func = "ipLoc";
+    const debug = true;
+    let result, returnObj;
+
+    // Log debug information
+    if (debug) {
+        console.log(`${_func}: entry`);
+    }
+
+    try {        
+        {
+            //Find the geolocation using the IP input from the local file, and return ip, country and city
+            result = ip2location.getAll(IP);
+            returnObj = {
+                ip: result.ip,
+                country: result.country_short,
+                city: result.city
+            };
+        }        
+
+    } catch (err) {
+        // Log any errors that occur
+        console.log(`${_func}: error -> ${err}`);
+    }
+};
+```
+## Explain code in model.controller.js
+
+We learnt previously that you can command Copilot to geenrate doc. Let's try another command this time. 
+
+Open `/backend/app/controllers\model.controller.js`, search in the file START:TODO
+
+Select the code block below it, then key in `Cmd+I`, type `/explain` then enter.
+
+![Screenshot 2023-10-25 at 2 10 11 am](https://github.com/dhruvg20-copilot/Copilot-Dev-Practices/assets/61316020/694c2a35-4958-496e-a30e-dfdbea012fa2)
+
+The command `/explain` is passed to Copilot Chat for an answer. Very handy isn't it?
+
+![Screenshot 2023-10-25 at 2 10 44 am](https://github.com/dhruvg20-copilot/Copilot-Dev-Practices/assets/61316020/9a42d832-13c9-46a8-af02-40e70262672b)
+
+## Update http-common.js to pass IP
+
+Now we are getting close to completing all changes 🦾. One thing left is to update `/frontend/src/http-common.js` 
+
+You will see a list of commented `x-forwarded-for-ip`, uncomment one of them so we can pass IP in the request header.
+
+## Refresh Site
+
+Refreshing the site. Depending on which `x-forwarded-for-ip`, the listing is now shortlisted
+
+## Run script to create PR
+
+## Generate PR description summary

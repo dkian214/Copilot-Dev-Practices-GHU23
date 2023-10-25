@@ -7,50 +7,50 @@ const { ipLoc } = require('./geolocation/IP2Location');
 const express = require('express');
 const cors = require('cors');
 
-const app = express();
-const requestIp = require('request-ip');
-app.use(requestIp.mw());
+const initializeApp = () => {
+    const app = express();
+    const requestIp = require('request-ip');
+    app.use(requestIp.mw());
 
-const db = require("./app/models");
-db.mongoose.connect(db.url, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-}).then(() => {
-    console.log("Connected to the database!");
-}).catch(err => {
-    console.log("Cannot connect to the database!", err);
-    process.exit();
-});
+    const db = require("./app/models");
+    db.mongoose.connect(db.url, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true
+    }).then(() => {
+        console.log("Connected to the database!");
+    }).catch(err => {
+        console.log("Cannot connect to the database!", err);
+        process.exit();
+    });
 
 
-// Set cors options to http://localhost:8081
+    // Set cors options to http://localhost:8081
 
-var corsOptions = {
-    origin: 'http://localhost:3000'
-};
+    var corsOptions = {
+        origin: 'http://localhost:3000'
+    };
 
-// Add cors middleware to express app
-//app.use(cors(corsOptions));
-app.use(cors());
+    // Add cors middleware to express app
+    //app.use(cors(corsOptions));
+    app.use(cors());
 
-// parse requests of content-type - application/json
-app.use(express.json());
+    // parse requests of content-type - application/json
+    app.use(express.json());
 
-// parse requests of content-type - application/x-www-form-urlencoded
-app.use(express.urlencoded({ extended: true }));
+    // parse requests of content-type - application/x-www-form-urlencoded
+    app.use(express.urlencoded({ extended: true }));
 
-// simple route
-app.get('/', (req, res) => {
-    //res.json({ message: 'Welcome to the application.' });   
-    const ip1 = req.clientIp;
-    ipLoc(ip1);
-    res.end(ip1);
-});
+    // simple route
+    app.get('/', (req, res) => {
+        res.json({ message: 'Welcome to the application.' });
+        //const ip1 = req.clientIp;
+        //ipLoc(ip1);
+        //res.end(ip1);
+    });
 
-require("./app/routes/model.routes")(app);
+    require("./app/routes/model.routes")(app);
+    return app;
+}
 
-// set port, listen for requests
-const PORT = process.env.PORT || 8080;
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}.`);
-});
+const app = initializeApp();
+module.exports = app;
