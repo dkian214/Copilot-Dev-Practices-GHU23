@@ -75,7 +75,7 @@
 4. **Step** - Open the `\backend\test\endpoint.test.js` file 
 5. **Step - Test Case 1:** Check if id=102995, has been correctly updated
     1. **Step** -  Search - `//Test Case 1 - TODO:`
-    2. **Dev** - `/tests unit test - GET /api/model/{id} where id=102995, parse JSON response.text, and check name="UWS Brownstone Prime"`
+    2. **Dev** - `Window+I` `Cmd+I` -> `/tests unit test - GET /api/model/{id} where id=102995, parse JSON response.text, and check name="UWS Brownstone Prime"`
 6. **Step - Test Case 2:** Geo Location Check
     1. **Step** - Search - `//Test Case 2 - TODO:`
     2. **Dev** - `Window+I` `Cmd+I` -> `/tests unit test - GET /api/model/ set x-forwarded-for-ip header 8.210.96.219, parse JSON response.text, and loop through array listingsAndReviews`
