@@ -1,4 +1,10 @@
 // Import the IP2Location module
+/**
+ * IP2Location module for geolocation.
+ * @module IP2Location
+ * @requires ip2location-nodejs
+ * @see {@link https://www.npmjs.com/package/ip2location-nodejs|ip2location-nodejs}
+ */
 const { IP2Location } = require("ip2location-nodejs");
 
 // Create a new IP2Location object

@@ -14,14 +14,16 @@
     9. [Learn activity objectives and approach](#learn-activity-objectives-and-approach)
 5. [Activity 2: New Feature/Requirement](#activity-2-new-featurerequirement)
     1. [Getting activity summary](#getting-activity-summary)
-    2. [Identify library and generate initial code](#identify-library-and-generate-initial-code)
-    3. [Update code in IPLocation.js](#update-code-in-iplocationjs)
-    4. [Adding doc in IPLocation.js](#adding-doc-in-iplocationjs)
-    5. [Explain code in model.controller.js](#explain-code-in-modelcontrollerjs)
-    6. [Update http-common.js to pass IP](#update-http-commonjs-to-pass-ip)
-    7. [Refresh site](#refresh-site)
-    8. [Run script to create PR](#run-script-to-create-pr)
-    9. [Generate PR description summary](#generate-pr-description-summary)
+    2. [Identify library and generate test code](#identify-library-and-generate-test-code)
+    3. [Improve test code to function](#improve-test-code-to-function)
+    4. [Run the test code](#run-the-test-code)
+    5. [Update code in IPLocation.js](#update-code-in-iplocationjs)
+    6. [Adding doc in IPLocation.js](#adding-doc-in-iplocationjs)
+    7. [Explain code in model.controller.js](#explain-code-in-modelcontrollerjs)
+    8. [Update http-common.js to pass IP](#update-http-commonjs-to-pass-ip)
+    9. [Refresh site](#refresh-site)
+    10. [Run script to create PR](#run-script-to-create-pr)
+    11. [Generate PR description summary](#generate-pr-description-summary)
 7. [Workshop's Copilot Prompts](#workshops-copilot-prompts)
 
 
@@ -233,8 +235,11 @@ Our Sister Company is using [IP2LOCATION](https://www.ip2location.com/) and for 
 
 
 <hr/>
-<h3 align="left">Case 3: Writing a Test case for Use case 2</h3>
+<h3 align="left">Case 3: Writing a Test cases for the above 2 Use cases</h3>
 
+1. **Test Case 1** - Check the Listing based on the ID, and check if it's name has been correctly changed to `UWS Brownstone Prime`.
+
+2. **Test Case 2** - Check if Geo Location logic implementation is working as desired
 <hr/>
 <hr/>
 
@@ -467,7 +472,7 @@ You will find that `IP2Location` is to be used, also `Local Geo Location Databas
 
 Let's build with Copilot in Codespaces
 
-## Identify library and generate initial code
+## Identify library and generate test code
 
 In Codespaces, use Copilot Chat(IDE) to start exploring code. We'd like to get some solid ground first:
 ```
@@ -496,7 +501,7 @@ const result = ip2location.lookup(ip);
 console.log(result);
 ```
 
-## Improve Code to function
+## Improve test code to function
 
 We'd like to get more how-tos in the next step, and it's time find some documentation about `IP2Location`. Ask Copilot Chat:
 ```
@@ -531,11 +536,20 @@ for (var x = 0; x < testip.length; x++) {
 ip2location.close();
 ```
 
-## Run the test and save result
+## Run the test code
+
+We can run a quick test on this `test.js`, further by saving the result to a file to inspect. Try the following with Copilot CLI:
+```
+?? run ./backend/geolocation/test.js and save result into ./backend/geolocation/test_result.json
+```
+
+Proceed with the recommendation or run `node ./backend/geolocation/test.js > ./backend/geolocation/test_result.json` if you got issues. You will see `./backend/geolocation/test_result.json` appears. Openning that up you might see there are JSON within it but ip is unknown and a bunch of `MISSING_FILE`
+
+That says we can get the response with the expected format. This `test.js` will be a useful reference to Copilot updating actual code inside our project. Let's take a look at that next step.
 
 ## Update code in IPLocation.js
 
-While leaving the file `.backend/geolocation/test.js` open, find `.backend/geolocation/IP2Location.js` and open in Codespaces
+While leaving the file `.backend/geolocation/test.js` open(which will help Copilot to use as project reference), find `.backend/geolocation/IP2Location.js` and open in Codespaces
 
 The file should have code look like below
 ```javascript
@@ -668,7 +682,7 @@ module.exports.ipLoc = function (IP) {
 
 We learnt previously that you can command Copilot to geenrate doc. Let's try another command this time. 
 
-Open `/backend/app/controllers\model.controller.js`, search in the file START:TODO
+Open `/backend/app/controllers/model.controller.js`, search in the file START:TODO
 
 Select the code block below it, then key in `Cmd+I`, type `/explain` then enter.
 
@@ -690,4 +704,27 @@ Refreshing the site. Depending on which `x-forwarded-for-ip`, the listing is now
 
 ## Run script to create PR
 
+With that, we are comfortable to push our changes back. There is a script prepared for you. Run `code ./scripts/git_branch_push.sh` to open the script file to have a look
+
+What it does:
+1. creating a feature branch `geo-location-logic`
+2. carrying all the changes we introduced(new files such as `test.js` won't be added, only changes to existing project files)
+3. push to remote branch of the same name
+
+Run the script by running `./scripts/git_branch_push.sh`
+
 ## Generate PR description summary
+
+Get back to your project repo on GitHub UI, you should be able to see a prompt asking you creating a Pull Request for branch `geo-location-logic`
+
+![Screenshot 2023-10-26 at 4 24 36 pm](https://github.com/dhruvg20-copilot/Copilot-Dev-Practices/assets/61316020/e6fe008c-293d-4607-9941-8398e05f96d1)
+
+Click to proceed, we want to write something about this PR. In real projects, this is almost essential to reviewers. Can GitHub Copilot help? That answer is possitive ✨
+
+You will notice description editor now also empowered with Copilot Icon. This is where you can access Copilot for PR on writing description. Click the icon then the summary
+
+![Screenshot 2023-10-26 at 4 20 31 pm](https://github.com/dhruvg20-copilot/Copilot-Dev-Practices/assets/61316020/6392059b-6d64-44a9-9e98-8b8328879bac)
+
+Copilot will take sometime to extract code changes, together with project contexts, and generate description ready for you!
+
+Once ready, create the PR and merge it and we are done in Activity 2 🎉

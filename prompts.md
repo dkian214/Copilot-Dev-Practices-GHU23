@@ -58,9 +58,9 @@
 6. **Step** - Open the `\backend\geolocation\IP2Location.js` Search in the file `START:TODO`, and select the code block below it
     1. **CallOut** - Keep the file `test.js` open in a Tab, for appropriate context to built 
     2. **DevPrompt** - //Find the geolocation using the IP input from the local file, and return ip, country and city
-    3. **Dev** Mac - `Cmd+I` -> `/doc`
+    3. **Dev** `Window+I` `Cmd+I` -> `/doc`
 7. **Step** - Open the `/backend/app/controllers\model.controller.js` Search in the file `START:TODO`, and select the code block below it
-    1. **Dev** Mac - `Cmd+I` -> `/explain`
+    1. **Dev** `Window+I` `Cmd+I` -> `/explain`
 8. **IdeChat** (REFERENCE: WORKSHOP.md) - Which frontend file has the backend uri endpoint?
 9. **Step** - Open `/frontend/src/http-common.js`
     1. **Step** - Uncomment and pass the different location's "x-forwarded-for-ip" headers to the backend
@@ -69,3 +69,14 @@
 12. **DotComPR** - Let us run `/summary` to the GitHub Copilot generate the summary for us out of the box
 
 ## Activity 3: Writing a Test cases for 2 activities
+1. **CallOut** - Open the `\backend\app\routes\model.routes.js` Search and highlight `// Retrieve a single Listing with id` and explain we need to test id `102995`
+2. **CallOut** - Open the `\backend\app\routes\model.routes.js` Search and highlight `// Retrieve all Listings` and explain Geo Location Endpoint
+3. **Step** - Open the `\backend\test\endpoint.test.js` file 
+4. **Step - Test Case 1:** Check if id=102995, has been correctly updated
+    1. **Step** -  Search - `//Test Case 1 - TODO:`
+    2. **Dev** - `/tests unit test - GET /api/model/{id} where id=102995, parse JSON response.text, and check name="UWS Brownstone Prime"`
+6. **Step - Test Case 2:** Geo Location Check
+    1. **Step** - Search - `//Test Case 2 - TODO:`
+    2. **Dev** - `Window+I` `Cmd+I` -> `/tests unit test - GET /api/model/ set x-forwarded-for-ip header 8.210.96.219, parse JSON response.text, and loop through array listingsAndReviews`
+    3. **Dev** - `//expect to check listing.address for market=Hong Kong`
+

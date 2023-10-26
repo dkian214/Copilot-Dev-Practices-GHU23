@@ -87,3 +87,17 @@ mongoimport --collection='listingsAndReviews' --file='mongodb-dataset/sample_air
 first minify the response.json, and then use the json data as string input to Put request to http://localhost:8080/api/model/102995
 
 find . -name '*.js' | xargs wc -l | sort -hr
+
+/tests unit test - GET /api/model/ set x-forwarded-for-ip header 8.210.96.219, parse JSON response.text, and loop through array listingsAndReviews
+
+//expect to check listing.address for market=Hong Kong
+
+
+/tests unit test - GET /api/model/ set x-forwarded-for-ip header 8.210.96.219, parse JSON response.text and loop array response.text.listingsAndReviews
+
+/tests jest GET /api/model/ set x-forwarded-for-ip header 8.210.96.219
+1. GET /api/model/ set x-forwarded-for-ip header 8.210.96.219
+2. parse JSON response.text
+3. loop array response.text.listingsAndReviews
+
+/tests unit test - GET /api/model/{id} where id=102995, parse JSON response.text, and check name="UWS Brownstone Prime"
