@@ -69,10 +69,11 @@
 12. **DotComPR** - Let us run `/summary` to the GitHub Copilot generate the summary for us out of the box
 
 ## Activity 3: Writing a Test cases for 2 activities
-1. **CallOut** - Open the `\backend\app\routes\model.routes.js` Search and highlight `// Retrieve a single Listing with id` and explain we need to test id `102995`
-2. **CallOut** - Open the `\backend\app\routes\model.routes.js` Search and highlight `// Retrieve all Listings` and explain Geo Location Endpoint
-3. **Step** - Open the `\backend\test\endpoint.test.js` file 
-4. **Step - Test Case 1:** Check if id=102995, has been correctly updated
+1. **Step** -  Inside `/backend` folder, run `npm test` to show testing running
+2. **CallOut** - Open the `\backend\app\routes\model.routes.js` Search and highlight `// Retrieve a single Listing with id` and explain we need to test id `102995`
+3. **CallOut** - Open the `\backend\app\routes\model.routes.js` Search and highlight `// Retrieve all Listings` and explain Geo Location Endpoint
+4. **Step** - Open the `\backend\test\endpoint.test.js` file 
+5. **Step - Test Case 1:** Check if id=102995, has been correctly updated
     1. **Step** -  Search - `//Test Case 1 - TODO:`
     2. **Dev** - `/tests unit test - GET /api/model/{id} where id=102995, parse JSON response.text, and check name="UWS Brownstone Prime"`
 6. **Step - Test Case 2:** Geo Location Check
