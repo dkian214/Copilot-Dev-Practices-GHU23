@@ -17,7 +17,7 @@ env | grep TOKEN
 export ISSUE_NUMBER=$(gh issue list -L 10000 -R $OWNER/$REPO --json number,title --jq '.[] | select(.title | contains(env.ISSUE_NAME)) | .number') && echo $ISSUE_NUMBER
 
 if [ -z "$ISSUE_NUMBER" ]; then 
-  gh api --header 'Accept: application/vnd.github+json' --method POST /repos/$OWNER/$REPO/issues -f title="$ISSUE_NAME" -f body="This is a test issue created by the REST API"  -f project_id=$PROJECT_ID -f state="in_progress"
+  gh api --header 'Accept: application/vnd.github+json' --method POST /repos/$OWNER/$REPO/issues -f title="$ISSUE_NAME" -f body="This is a test issue created by the REST API - **FROM** - [${GITHUB_REPOSITORY}](https://github.com/${GITHUB_REPOSITORY})"
 else 
   echo "ISSUE Already Exists"; 
 fi
