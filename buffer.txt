@@ -101,3 +101,277 @@ find . -name '*.js' | xargs wc -l | sort -hr
 3. loop array response.text.listingsAndReviews
 
 /tests unit test - GET /api/model/{id} where id=102995, parse JSON response.text, and check name="UWS Brownstone Prime"
+
+
+
+export TITLE=11
+export REPO=Copilot-Dev-Practices
+export OWNER=dhruvg20-copilot
+gh api graphql -F query='
+  query($owner:String!, $repo:String!, $title:String!) {
+    repository(owner:$owner, name:$repo) {
+      issue(number:$title) {
+        id
+      }
+    }
+  }' -F owner=$OWNER -F repo=$REPO -F title=$TITLE | jq -r '.data.repository.issue.id'
+
+GITHUB_USER
+
+gh api graphql -F query='
+  query($owner:String!, $name:String!, $title:String!) {
+    repository(owner:$owner, name:$name) {
+      issue(number:1) {
+        title
+      }
+    }
+  }' -F owner=dhruvg20-copilot -F name=Copilot-Dev-Practices -F title="dhruvg20-activity-progress"
+
+  gh issue list -R dhruvg20-copilot/Copilot-Dev-Practices --search "dhruvg20-activity-progress in:title"
+
+  gh issue list -L 10000 -R dhruvg20-copilot/Copilot-Dev-Practices --json number,title --jq '.[] | select(.title | contains("dhruvg20-activity-progress"))'
+
+
+gh api --header 'Accept: application/vnd.github+json' --method POST /repos/dhruvg20-copilot/Copilot-Dev-Practices/issues -f title="${GITHUB_USER}-activity-progress" -f body="This is a test issue created by the REST API"
+gh issue list -L 10000 -R dhruvg20-copilot/Copilot-Dev-Practices --json number,title --jq --arg user $GITHUB_USER '.[] | select(.title | contains("$user-activity-progress"))'
+
+jq --arg env $ENV '.[$env]'
+export output=$(gh api graphql -f query='
+  query{
+    node(id: "PVT_kwDOB1l0iM4AXZry") {
+        ... on ProjectV2 {
+          items(first: 100) {
+            nodes{
+              id
+              fieldValues(first: 100) {
+                nodes{                
+                  ... on ProjectV2ItemFieldTextValue {
+                    text
+                    field {
+                      ... on ProjectV2FieldCommon {
+                        name
+                      }
+                    }
+                  }
+                  ... on ProjectV2ItemFieldDateValue {
+                    date
+                    field {
+                      ... on ProjectV2FieldCommon {
+                        name
+                      }
+                    }
+                  }
+                  ... on ProjectV2ItemFieldSingleSelectValue {
+                    name
+                    field {
+                      ... on ProjectV2FieldCommon {
+                        name
+                      }
+                    }
+                  }
+                }              
+              }
+            }
+          }
+        }
+      }
+    }' | jq '.data.node.items.nodes[] | select(.fieldValues.nodes[].text == env.ISSUE_NAME) | .id') && echo $output
+
+string='
+mutation {
+  updateProjectV2ItemFieldValue(
+    input: {
+      projectId: PROJECT_ID
+      itemId: "PVTI_lADOB1l0iM4AXZryzgKONv4"
+      fieldId: "PVTSSF_lADOB1l0iM4AXZryzgO9XBA"
+      value: {
+        singleSelectOptionId: "21d19c16"
+      }
+    }
+  ) {
+    projectV2Item {
+      id
+    }
+  }
+}
+'
+# Replace PROJECT_ID with Dhruv
+echo "$string" && string=$(echo "$string" | sed -e 's/PROJECT_ID/'"$PROJECT_ID"'/g') && echo "$string"
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+#token-projects — project, repo, write:org -> Codespaces Secret -> PROJECTS_TOKEN
+
+env | grep TOKEN
+export GITHUB_TOKEN_BK=$GITHUB_TOKEN
+export GITHUB_TOKEN=$PROJECTS_TOKEN
+env | grep TOKEN
+
+export PROJECT_NUM=2
+export ISSUE_NAME="${GITHUB_USER}-activity-progress"
+export OWNER="dhruvg20-copilot"
+export REPO="Copilot-Dev-Practices"
+echo $ISSUE_NAME
+echo $OWNER
+echo $REPO
+
+export ISSUE_NUMBER=$(gh issue list -L 10000 -R $OWNER/$REPO --json number,title --jq '.[] | select(.title | contains(env.ISSUE_NAME)) | .number') && echo $ISSUE_NUMBER
+
+if [ -z "$ISSUE_NUMBER" ]; then 
+  gh api --header 'Accept: application/vnd.github+json' --method POST /repos/$OWNER/$REPO/issues -f title="$ISSUE_NAME" -f body="This is a test issue created by the REST API"  -f project_id=$PROJECT_ID -f state="in_progress"
+else 
+  echo "ISSUE Already Exists"; 
+fi
+
+#gh api --header 'Accept: application/vnd.github+json' --method POST /repos/$OWNER/$REPO/issues -f title="$ISSUE_NAME" -f body="This is a test issue created by the REST API"  -f project_id=$PROJECT_ID -f state="in_progress"
+
+#export ISSUE_NUMBER=$(gh issue list -L 10000 -R $OWNER/$REPO --json number,title --jq '.[] | select(.title | contains(env.ISSUE_NAME)) | .number') && echo $ISSUE_NUMBER
+
+export GRAPHQL="\
+    query{\
+    organization(login: OWNER){\
+      projectV2(number: PROJECT_NUM) {\
+        id\
+      }\
+    }\
+  }";
+
+echo "$GRAPHQL" && GRAPHQL=$(echo "$GRAPHQL" | sed -e 's/OWNER/'\""$OWNER"\"'/g') && echo "$GRAPHQL"
+echo "$GRAPHQL" && GRAPHQL=$(echo "$GRAPHQL" | sed -e 's/PROJECT_NUM/'"$PROJECT_NUM"'/g') && echo "$GRAPHQL"
+
+export PROJECT_ID=$(gh api graphql -f query="$GRAPHQL"  | jq '.data.organization.projectV2.id') && echo $PROJECT_ID
+
+gh project item-add $PROJECT_NUM --owner $OWNER --url https://github.com/$OWNER/$REPO/issues/$ISSUE_NUMBER
+
+export GRAPHQL="
+  query{
+    node(id: PROJECT_ID) {
+        ... on ProjectV2 {
+          items(first: 100) {
+            nodes{
+              id
+              fieldValues(first: 100) {
+                nodes{                
+                  ... on ProjectV2ItemFieldTextValue {
+                    text
+                    field {
+                      ... on ProjectV2FieldCommon {
+                        name
+                      }
+                    }
+                  }
+                  ... on ProjectV2ItemFieldDateValue {
+                    date
+                    field {
+                      ... on ProjectV2FieldCommon {
+                        name
+                      }
+                    }
+                  }
+                  ... on ProjectV2ItemFieldSingleSelectValue {
+                    name
+                    field {
+                      ... on ProjectV2FieldCommon {
+                        name
+                      }
+                    }
+                  }
+                }              
+              }
+            }
+          }
+        }
+      }
+    }"
+echo "$GRAPHQL" && GRAPHQL=$(echo "$GRAPHQL" | sed -e 's/PROJECT_ID/'"$PROJECT_ID"'/g') && echo "$GRAPHQL"    
+export ISSUE_ID=$(gh api graphql -f query="$GRAPHQL" | jq '.data.node.items.nodes[] | select(.fieldValues.nodes[].text == env.ISSUE_NAME) | .id') && echo $ISSUE_ID
+
+
+PROJECT_ID=PVT_kwDOB1l0iM4AXZry
+PROJECT_ID=PVT_kwDOB1l0iM4AXa6z
+gh api graphql -f query='
+  query{
+  node(id: "PVT_kwDOB1l0iM4AXa6z") {
+    ... on ProjectV2 {
+      fields(first: 100) {
+        nodes {
+          ... on ProjectV2Field {
+            id
+            name
+          }
+          ... on ProjectV2IterationField {
+            id
+            name
+            configuration {
+              iterations {
+                startDate
+                id
+              }
+            }
+          }
+          ... on ProjectV2SingleSelectField {
+            id
+            name
+            options {
+              id
+              name
+            }
+          }
+        }
+      }
+    }
+  }
+}' > ./scripts/progress_project.json
+
+export CUSTOM_FIELD_ID="PVTSSF_lADOB1l0iM4AXZryzgO9XBA"
+export CUSTOM_FIELD_ID="\"$CUSTOM_FIELD_ID\"" && echo $CUSTOM_FIELD_ID
+export SELECTION_ID="eabbf033"
+export SELECTION_ID="\"$SELECTION_ID"\" && echo $SELECTION_ID
+export GRAPHQL="mutation { 
+    updateProjectV2ItemFieldValue( 
+      input: { 
+        projectId: PROJECT_ID 
+        itemId: ISSUE_ID
+        fieldId: CUSTOM_FIELD_ID
+        value: { 
+          singleSelectOptionId: SELECTION_ID
+        } 
+      } 
+    ) { 
+      projectV2Item { 
+        id 
+      } 
+    } 
+  }"
+
+echo "$GRAPHQL" && GRAPHQL=$(echo "$GRAPHQL" | sed -e 's/PROJECT_ID/'"$PROJECT_ID"'/g') && echo "$GRAPHQL"
+echo "$GRAPHQL" && GRAPHQL=$(echo "$GRAPHQL" | sed -e 's/ISSUE_ID/'"$ISSUE_ID"'/g') && echo "$GRAPHQL"
+echo "$GRAPHQL" && GRAPHQL=$(echo "$GRAPHQL" | sed -e 's/CUSTOM_FIELD_ID/'"$CUSTOM_FIELD_ID"'/g') && echo "$GRAPHQL"
+echo "$GRAPHQL" && GRAPHQL=$(echo "$GRAPHQL" | sed -e 's/SELECTION_ID/'"$SELECTION_ID"'/g') && echo "$GRAPHQL"
+
+gh api graphql -f query="$GRAPHQL"
+
+gh api graphql -f query='
+  mutation {
+    updateProjectV2ItemFieldValue(
+      input: {
+        projectId: "PVT_kwDOB1l0iM4AXZry"
+        itemId: "PVTI_lADOB1l0iM4AXZryzgKONv4"
+        fieldId: "PVTSSF_lADOB1l0iM4AXZryzgO9XBA"
+        value: { 
+          singleSelectOptionId: "21d19c16"        
+        }
+      }
+    ) {
+      projectV2Item {
+        id
+      }
+    }
+  }'
+
+
+
+
+
+env | grep TOKEN
+GITHUB_TOKEN=
+GITHUB_CODESPACE_TOKEN=

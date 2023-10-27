@@ -11,4 +11,13 @@ eval "$(github-copilot-cli alias -- "$0")"
 
 echo -e 'eval "$(github-copilot-cli alias -- "$0")"' >> ~/.bashrc
 
+echo "TOKENS"
+env | grep TOKEN
+env | grep TOKEN >> ./scripts/postAttachCommand.txt
+
+pwd >> ./scripts/postAttachCommand.txt
+source ./scripts/progress_env.sh >> ./scripts/postAttachCommand.txt
+
+source ./scripts/progress_setup.sh >> ./scripts/postAttachCommand.txt
+
 exit 0

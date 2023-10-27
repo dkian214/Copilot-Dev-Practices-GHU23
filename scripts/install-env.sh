@@ -27,3 +27,6 @@ npm install
 #sed -i "s/shiny-acorn-v64jvpv96xwhp9g4-8080.app.github.dev/${CODESPACE_NAME}-8080.app.github.dev/g" ./frontend/src/http-common.js
 
 #node server.js
+
+echo "TOKENS"
+env | grep TOKEN
