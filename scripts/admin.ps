@@ -30,8 +30,9 @@ if ($env:OPS_TOKEN -eq $null){
 env | grep TOKEN
 $env:GITHUB_TOKEN_BK=$env:GITHUB_TOKEN
 $env:GITHUB_TOKEN=$env:OPS_TOKEN
-
 env | grep TOKEN
+
+cp .git/config .git/config_bk
 
 #parse and store in a variable print the file workshop_handles.data
 $workshop_handles = Get-Content -Path ./scripts/workshop_handles.data
