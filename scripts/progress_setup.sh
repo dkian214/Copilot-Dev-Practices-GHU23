@@ -150,8 +150,8 @@ if [ "$PROGRESS_VERBOSE" = true ]; then echo "$GRAPHQL"; fi && GRAPHQL=$(echo "$
 
 gh api graphql -f query="$GRAPHQL"
 
+export GITHUB_TOKEN=$GITHUB_TOKEN_BK
 if [ "$PROGRESS_VERBOSE" = true ]; then 
-  export GITHUB_TOKEN=$GITHUB_TOKEN_BK
   echo "TOKENS"
   env | grep TOKEN >> ./scripts/progress_setup.txt
 fi

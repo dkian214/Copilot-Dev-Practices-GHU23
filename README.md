@@ -39,6 +39,9 @@ Before joining the workshop, there are a few items that you will need to install
 ## :construction: Setup
 Please head to the SETUP.md to initialise your workshop environment.
 
+## :mega: Post-requisites
+This Repository would be deleted on 18th Nov 2023. Please create a backup of this Repository.
+
 ## :books: Resources
 - [GitHub Copilot - Your AI pair programmer](https://github.com/features/copilot)
 - [GitHub Copilot X - Your AI pair programmer is leveling up](https://github.com/features/preview/copilot-x)

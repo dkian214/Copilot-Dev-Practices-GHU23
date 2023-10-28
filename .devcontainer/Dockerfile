@@ -9,11 +9,7 @@ FROM mcr.microsoft.com/devcontainers/universal:2-linux
 # RUN su node -c "npm install -g <your-package-list-here>"
 
 RUN npm install -g npm@latest 
-RUN sudo apt-get update -y 
-RUN sudo apt-get upgrade -y
-RUN sudo apt-get install -y mongodb
-
-#RUN sudo service mongodb start && sudo service mongodb enable
+RUN sudo apt-get update -y && sudo apt-get upgrade -y && sudo apt-get install -y mongodb
 
 RUN npm install -g @githubnext/github-copilot-cli
 

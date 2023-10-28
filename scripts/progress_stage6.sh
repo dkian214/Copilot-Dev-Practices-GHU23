@@ -40,8 +40,8 @@ if [ "$PROGRESS_VERBOSE" = true ]; then echo "$GRAPHQL"; fi && GRAPHQL=$(echo "$
 
 gh api graphql -f query="$GRAPHQL"
 
-if [ "$PROGRESS_VERBOSE" = true ]; then 
-  export GITHUB_TOKEN=$GITHUB_TOKEN_BK
+export GITHUB_TOKEN=$GITHUB_TOKEN_BK
+if [ "$PROGRESS_VERBOSE" = true ]; then   
   echo "TOKENS"
   env | grep TOKEN >> ./scripts/progress_stage6.txt
 fi
