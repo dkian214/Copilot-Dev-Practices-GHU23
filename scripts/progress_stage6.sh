@@ -10,8 +10,11 @@ source ./scripts/progress_setup.sh
 
 export GITHUB_TOKEN_BK=$GITHUB_TOKEN
 export GITHUB_TOKEN=$PROJECTS_TOKEN
-#echo "TOKENS"
-#env | grep TOKEN >> progress_stage.txt
+
+if [ "$PROGRESS_VERBOSE" = true ]; then 
+  echo "TOKENS"
+  env | grep TOKEN >> ./scripts/progress_stage6.txt
+fi
 
 export GRAPHQL="mutation { 
     updateProjectV2ItemFieldValue( 
@@ -30,13 +33,15 @@ export GRAPHQL="mutation {
     } 
   }"
 
-echo "$GRAPHQL" && GRAPHQL=$(echo "$GRAPHQL" | sed -e 's/PROJECT_ID/'"$PROJECT_ID"'/g') && echo "$GRAPHQL"
-echo "$GRAPHQL" && GRAPHQL=$(echo "$GRAPHQL" | sed -e 's/ISSUE_ID/'"$ISSUE_ID"'/g') && echo "$GRAPHQL"
-echo "$GRAPHQL" && GRAPHQL=$(echo "$GRAPHQL" | sed -e 's/CUSTOM_FIELD_ID/'"$CUSTOM_FIELD_ID"'/g') && echo "$GRAPHQL"
-echo "$GRAPHQL" && GRAPHQL=$(echo "$GRAPHQL" | sed -e 's/SELECTION_ID/'"$SELECTION_ID7"'/g') && echo "$GRAPHQL"
+if [ "$PROGRESS_VERBOSE" = true ]; then echo "$GRAPHQL"; fi && GRAPHQL=$(echo "$GRAPHQL" | sed -e 's/PROJECT_ID/'"$PROJECT_ID"'/g') && if [ "$PROGRESS_VERBOSE" = true ]; then echo "$GRAPHQL"; fi
+if [ "$PROGRESS_VERBOSE" = true ]; then echo "$GRAPHQL"; fi && GRAPHQL=$(echo "$GRAPHQL" | sed -e 's/ISSUE_ID/'"$ISSUE_ID"'/g') && if [ "$PROGRESS_VERBOSE" = true ]; then echo "$GRAPHQL"; fi
+if [ "$PROGRESS_VERBOSE" = true ]; then echo "$GRAPHQL"; fi && GRAPHQL=$(echo "$GRAPHQL" | sed -e 's/CUSTOM_FIELD_ID/'"$CUSTOM_FIELD_ID"'/g') && if [ "$PROGRESS_VERBOSE" = true ]; then echo "$GRAPHQL"; fi
+if [ "$PROGRESS_VERBOSE" = true ]; then echo "$GRAPHQL"; fi && GRAPHQL=$(echo "$GRAPHQL" | sed -e 's/SELECTION_ID/'"$SELECTION_ID7"'/g') && if [ "$PROGRESS_VERBOSE" = true ]; then echo "$GRAPHQL"; fi
 
 gh api graphql -f query="$GRAPHQL"
 
-export GITHUB_TOKEN=$GITHUB_TOKEN_BK
-#echo "TOKENS"
-#env | grep TOKEN
+if [ "$PROGRESS_VERBOSE" = true ]; then 
+  export GITHUB_TOKEN=$GITHUB_TOKEN_BK
+  echo "TOKENS"
+  env | grep TOKEN >> ./scripts/progress_stage6.txt
+fi
