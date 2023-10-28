@@ -34,7 +34,7 @@ $env:GITHUB_TOKEN=$env:OPS_TOKEN
 env | grep TOKEN
 
 #parse and store in a variable print the file workshop_handles.data
-$workshop_handles = Get-Content -Path workshop_handles.data
+$workshop_handles = Get-Content -Path ./scripts/workshop_handles.data
 
 if ($ACTION -eq "create"){
 #iterate through the workshop_handles array and print each handle
