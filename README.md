@@ -26,12 +26,12 @@ Before joining the workshop, there are a few items that you will need to install
 1. GitHub Account
 2. Accepted the Universe 23 Organization invite
 3. Use this template, and create a new repository in the same Organization to get all the features available. As seen below. 
-<p align="center"><img width="500" alt="image" src="https://github.com/dhruvg20-copilot/Copilot-Dev-Practices/assets/20143038/48820676-2f58-4dc9-bbaf-7cb5e0b52536"></p>
+<p align="center"><img width="500" alt="image" src="./images/image-1.png"></p>
 &nbsp;&nbsp;&nbsp;4. Give the new project the name same as the current Project with "-[your-github-handle]". 
 <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Example: Copilot-Dev-Practices-dhruvg20
-<br/><br/><p align="center"><img width="372" alt="image" src="https://github.com/dhruvg20-copilot/Copilot-Dev-Practices/assets/20143038/455275ab-a6dc-48b2-b31d-70bc704861b9"></p>
+<br/><br/><p align="center"><img width="372" alt="image" src="./images/image-2.png"></p>
 &nbsp;&nbsp;&nbsp;5. Once you have created your Repository. Go ahead and create a new Codespaces by click the below seen "+" sign.
-<p align="center"><img width="500" alt="image" src="https://github.com/dhruvg20-copilot/Copilot-Dev-Practices/assets/20143038/f9c15e9f-4b68-4589-8b3b-92510a4b37ed"></p>
+<p align="center"><img width="500" alt="image" src="./images/image-3.png"></p>
 &nbsp;&nbsp;&nbsp;6. Please go through workshop details -
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [WORKSHOP](./WORKSHOP.md)

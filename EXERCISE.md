@@ -30,24 +30,24 @@
 `When you are on this project in browser, you'd have noticed a little Copilot icon next to your GitHub Avatar, on top right corner. 
 
 Click to start a conversation with Copilot Chat
-![find_copilot_chat_ui](https://github.com/dhruvg20-copilot/Copilot-Dev-Practices/assets/61316020/79ecb76e-0e3d-4906-938d-21fb72561782)
+![find_copilot_chat_ui](./images/EXERCISE-img-1.gif)
 
-![Screenshot 2023-10-06 at 2 23 40 pm](https://github.com/dhruvg20-copilot/Universe23-Proj1-MERN/assets/61316020/8f398d34-1443-46f7-a596-4273507475d6)
+![Screenshot 2023-10-06 at 2 23 40 pm](./images/EXERCISE-img-2.png)
 
 :warning: You must on this repository page under `githubuniverseworkshops` in order to see this icon
 
 A new converseation pops up on the right hand side
 
-![Screenshot 2023-10-12 at 12 33 57 pm](https://github.com/dhruvg20-copilot/Copilot-Dev-Practices/assets/61316020/927edcbc-389d-4cba-8fcc-8ce24d0b5a7b)
+![Screenshot 2023-10-12 at 12 33 57 pm](./images/EXERCISE-img-3.png)
 
 
-Click ![Screenshot 2023-10-06 at 2 35 13 pm](https://github.com/dhruvg20-copilot/Universe23-Proj1-MERN/assets/61316020/bd11066a-1332-4c0a-8678-4bf96c9316fe) to add reference <br >
+Click ![Screenshot 2023-10-06 at 2 35 13 pm](./images/EXERCISE-img-4.png) to add reference <br >
 
-![Screenshot 2023-10-06 at 2 28 59 pm](https://github.com/dhruvg20-copilot/Universe23-Proj1-MERN/assets/61316020/effcbec7-4bdc-4b0e-b65f-755e069c3cf2)
+![Screenshot 2023-10-06 at 2 28 59 pm](./images/EXERCISE-img-5.png)
 
 :warning: You may not see the option `Docs` as this is under internal preview. We will cover them in a demo towards th end of this workshop
 
-Click ![Screenshot 2023-10-06 at 2 35 19 pm](https://github.com/dhruvg20-copilot/Universe23-Proj1-MERN/assets/61316020/6423c5db-de86-4dd4-942a-5ae80aaaa64f) will let you manage threads. You can create and manage multiple threads if you like
+Click ![Screenshot 2023-10-06 at 2 35 19 pm](./images/EXERCISE-img-6.png) will let you manage threads. You can create and manage multiple threads if you like
 
 Let's start using Copilot Chat in UI 🚙
 
@@ -59,7 +59,7 @@ It's great we have a few markdowns here. Add `PROJECT.md` as a reference
 2. In the prompt, scroll until you see `PROJECT.md`, select
 3. This reference will be used in the chat moving forwards
 
-![copilot_chat_select_file](https://github.com/dhruvg20-copilot/Copilot-Dev-Practices/assets/61316020/8e65a4a1-ebb8-4d7b-b908-af003a368071)
+![copilot_chat_select_file](./images/EXERCISE-img-7.gif)
 
 
 Once done, asking Copilot Chat to explain the project.
@@ -88,7 +88,7 @@ The starting `??` is one of 3 syntaxes of Copilot for CLI, we are asking for a s
 
 We can see Copilot for CLI provided a suggestion, which we can choose to `Run`, `Revise` or `Cancel`. Go ahead with suggestion you will see the command output
 
-![copilot_cli_1](https://github.com/dhruvg20-copilot/Copilot-Dev-Practices/assets/61316020/dd033e7f-8d86-4a85-ae21-3ff1c2590527)
+![copilot_cli_1](./images/EXERCISE-img-8.gif)
 
 Continue checking if MongoDB is running. This time, you were given a suggestion that looked working, but it is broken because `systemctl` is not supported in Codespaces and you were told to use `service` instead
 
@@ -142,9 +142,9 @@ What is the local uri and port for mongodb?
 
 As there are mutiple services involved, let's split terminal to manage them seperately. Please rename each terminal as `bash`, `backend` and `frontend` so to differentiate each other
 
-![codespaces_split_terminal](https://github.com/dhruvg20-copilot/Copilot-Dev-Practices/assets/61316020/cea8cadb-a536-4bb3-89ef-24fff5e8049e)
+![codespaces_split_terminal](./images/EXERCISE-img-9.gif)
 
-![Screenshot 2023-10-12 at 1 49 36 pm](https://github.com/dhruvg20-copilot/Copilot-Dev-Practices/assets/61316020/ae6ce526-1468-4420-a40d-c93e51e926e4)
+![Screenshot 2023-10-12 at 1 49 36 pm](./images/EXERCISE-img-10.png)
 
 Next we will start backend and frontend services one after another
 
@@ -159,11 +159,11 @@ cd frontend && npm start
 
 Upon completion of frontend starting, you will be prompt by Codespaces to open web URL in a new window, click to proceed on the one with port `3000`. Alternatively, find `PORTS` and click the little globe icon for port `3000`
 
-![Screenshot 2023-10-12 at 1 59 09 pm](https://github.com/dhruvg20-copilot/Copilot-Dev-Practices/assets/61316020/adf69450-90c2-41d1-beba-5b657eca12d3)
+![Screenshot 2023-10-12 at 1 59 09 pm](./images/EXERCISE-img-11.png)
 
 You will see `Backend URL: NOT FOUND: 404` error. Don't worry, we will fix it together next 👀
 
-![Screenshot 2023-10-12 at 1 55 42 pm](https://github.com/dhruvg20-copilot/Copilot-Dev-Practices/assets/61316020/871da95c-7070-4b82-bae8-4e0a0506f11e)
+![Screenshot 2023-10-12 at 1 55 42 pm](./images/EXERCISE-img-12.png)
 
 
 ## Investigate backend URL 404 error
@@ -182,11 +182,11 @@ Any chance this could be hardcoded in our project? Possibly. Let's find it out. 
 
 This might take up to 30 seconds. You should be see result `/.frontend/src/http-common.js`. Now open that file in Codespaces.
 
-![Screenshot 2023-10-12 at 3 44 18 pm](https://github.com/dhruvg20-copilot/Copilot-Dev-Practices/assets/61316020/75f0288d-c0ca-444a-9d42-97748d3bb964)
+![Screenshot 2023-10-12 at 3 44 18 pm](./images/EXERCISE-img-13.png)
 
 This time let's try Copilot Chat in IDE. Similar to Copilot Chat in UI, we can add context alongside our questions. In IDE, we need to select exact line of code instead of an open file, then ask questions:
 
-![copilot_chat_ide_explain_code](https://github.com/dhruvg20-copilot/Copilot-Dev-Practices/assets/61316020/ef91cbe2-d5e9-4b83-a19a-6c863c5a7746)
+![copilot_chat_ide_explain_code](./images/EXERCISE-img-14.gif)
 
 This `baseURL` catches our attention here. Checking the code we found it is hardcoded also. 
 
@@ -206,17 +206,17 @@ Back to Codespaces and execute the following:
 - [ ] Replace `baseURL` with this new URL
 - [ ] Don't forget to check the tailing `/api` is there
 
-![codespaces_update_baseurl](https://github.com/dhruvg20-copilot/Copilot-Dev-Practices/assets/61316020/8d0cb6cd-5ea9-47fe-ae08-69dbac73f0b2)
+![codespaces_update_baseurl](./images/EXERCISE-img-15.gif)
 
 We also need to change visibility of port `8080` to `public` in order to allow frontend to query:
 - [ ] Stay on `PORTS` section, right click port `8080`
 - [ ] Port Visibility -> Public
 
-<img width="625" alt="Screenshot 2023-10-12 at 4 08 58 pm" src="https://github.com/dhruvg20-copilot/Copilot-Dev-Practices/assets/61316020/5163dc7a-0ce9-415d-987f-6073ecd927be">
+<img width="625" alt="Screenshot 2023-10-12 at 4 08 58 pm" src="./images/EXERCISE-img-16.png">
 
 Switch to the web url tab, refresh the page, You should start seeing content loading up 🥳
 
-<img width="1536" alt="Screenshot 2023-10-12 at 4 11 54 pm" src="https://github.com/dhruvg20-copilot/Copilot-Dev-Practices/assets/61316020/6143fd9e-faa3-4ef7-ade3-4e18d738f764">
+<img width="1536" alt="Screenshot 2023-10-12 at 4 11 54 pm" src="./images/EXERCISE-img-17.png">
 
 ## Learn activity objectives and approach
 
@@ -403,11 +403,11 @@ Stay on `IPLocation.js`, click line 1. Then type the following key combinations:
 
 This is the shortcut to command Copilot 💻! Now type `/doc` and `ENTER`
 
-![Screenshot 2023-10-25 at 1 17 58 am](https://github.com/dhruvg20-copilot/Copilot-Dev-Practices/assets/61316020/ae99b1b5-c899-4b78-a3b1-e074a0117ae1)
+![Screenshot 2023-10-25 at 1 17 58 am](./images/EXERCISE-img-23.png)
 
 Wooa! Copilot generates some docs for you based on the new code we just added. It also asks for your review. Click `Accept` button. 
 
-![Screenshot 2023-10-25 at 1 23 26 am](https://github.com/dhruvg20-copilot/Copilot-Dev-Practices/assets/61316020/68a411e4-fe22-45be-942b-aabee0f7492a)
+![Screenshot 2023-10-25 at 1 23 26 am](./images/EXERCISE-img-18.png)
 
 You final version of `IPLocation.js`
 
@@ -466,11 +466,11 @@ Open `/backend/app/controllers/model.controller.js`, search in the file START:TO
 
 Select the code block below it, then key in `Cmd+I`, type `/explain` then enter.
 
-![Screenshot 2023-10-25 at 2 10 11 am](https://github.com/dhruvg20-copilot/Copilot-Dev-Practices/assets/61316020/694c2a35-4958-496e-a30e-dfdbea012fa2)
+![Screenshot 2023-10-25 at 2 10 11 am](./images/EXERCISE-img-24.png)
 
 The command `/explain` is passed to Copilot Chat for an answer. Very handy isn't it?
 
-![Screenshot 2023-10-25 at 2 10 44 am](https://github.com/dhruvg20-copilot/Copilot-Dev-Practices/assets/61316020/9a42d832-13c9-46a8-af02-40e70262672b)
+![Screenshot 2023-10-25 at 2 10 44 am](./images/EXERCISE-img-25.png)
 
 ## Update http-common.js to pass IP
 
@@ -497,13 +497,13 @@ Run the script by running `./scripts/git_branch_push.sh`
 
 Get back to your project repo on GitHub UI, you should be able to see a prompt asking you creating a Pull Request for branch `geo-location-logic`
 
-![Screenshot 2023-10-26 at 4 24 36 pm](https://github.com/dhruvg20-copilot/Copilot-Dev-Practices/assets/61316020/e6fe008c-293d-4607-9941-8398e05f96d1)
+![Screenshot 2023-10-26 at 4 24 36 pm](./images/EXERCISE-img-21.png)
 
 Click to proceed, we want to write something about this PR. In real projects, this is almost essential to reviewers. Can GitHub Copilot help? That answer is possitive ✨
 
 You will notice description editor now also empowered with Copilot Icon. This is where you can access Copilot for PR on writing description. Click the icon then the summary
 
-![Screenshot 2023-10-26 at 4 20 31 pm](https://github.com/dhruvg20-copilot/Copilot-Dev-Practices/assets/61316020/6392059b-6d64-44a9-9e98-8b8328879bac)
+![Screenshot 2023-10-26 at 4 20 31 pm](./images/EXERCISE-img-26.png)
 
 Copilot will take sometime to extract code changes, together with project contexts, and generate description ready for you!
 

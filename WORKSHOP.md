@@ -16,7 +16,7 @@ Accommodation Listings
 
 The Project lists all the accommodations we our contracted with Airbnb. As our teams need to travel regularly to global locations and reserve accommodations on these available listings. 
 
-<div align="center"><img width="600" alt="image" src="https://github.com/dhruvg20-copilot/Copilot-Dev-Practices/assets/20143038/5ae9f844-51e2-41bb-b28c-2c4d2452692d"></div>
+<div align="center"><img width="600" alt="image" src="./images/WORKSHOP-img-1.png"></div>
 
 
 The Project is build on MERN stack is a JavaScript-based software stack used to build web applications. MERN stands for [MongoDB](https://docs.mongodb.com/), [Express](https://expressjs.com/), [React](https://reactjs.org/), and [Node.js](https://nodejs.org/en/docs/), which are the four technologies that make up the stack.
@@ -144,7 +144,7 @@ To ensure the best experience during this workshop, please follow the steps in t
 
 Inside your personal workshop repo(NOT the repo template your create this repo from), find `Code`, Select `Codespaces Tab`, then click the `+` to create a new Codespace instance. A new Tab will prompt and you should start seeing progress in Codespace preparation.
 
-![Screenshot 2023-09-29 at 11 46 17 am](https://github.com/dhruvg20-copilot/Copilot-Dev-Practices/assets/61316020/175e5d4c-3a55-426e-90d3-c7b253fb9273)
+![Screenshot 2023-09-29 at 11 46 17 am](./images/WORKSHOP-img-2.png)
 
 ℹ️ It generally takes a few minutes to get your Codespace ready for use <br />
 ℹ️ Although GitHub Codespaces supports a variety of IDE enginee, we will be using Visual Studio Code in this workshop(which is also the default choice)<br />
@@ -154,26 +154,26 @@ Inside your personal workshop repo(NOT the repo template your create this repo f
 
 If you closed the Codespace tab in your browser, you can always resume it. On your repo main page, locate recent Codespace instance via `Code` -> `Codespace Tab`, click the instance name will pop up the Codespace environment.
 
-![Screenshot 2023-09-29 at 11 58 16 am](https://github.com/dhruvg20-copilot/Copilot-Dev-Practices/assets/61316020/364c7592-a2cb-49d3-85b3-ea3958630d0f)
+![Screenshot 2023-09-29 at 11 58 16 am](./images/WORKSHOP-img-3.png)
 
 ## Check GitHub Copilot Features
 
 Your Codespace instance should look like below once it is ready
 
-![Screenshot 2023-09-29 at 12 16 10 pm](https://github.com/dhruvg20-copilot/Copilot-Dev-Practices/assets/61316020/a0e0aec1-bae2-4d3b-b0c1-92d372823019)
+![Screenshot 2023-09-29 at 12 16 10 pm](./images/WORKSHOP-img-4.png)
 
 ### :speech_balloon: Check out Copilot Chat
 
-Notice the side bar from left-hand, there is a ![Screenshot 2023-09-29 at 12 16 59 pm](https://github.com/dhruvg20-copilot/Copilot-Dev-Practices/assets/61316020/0f3ffda9-bb36-4ff5-8f7a-c5e7d24dceb0) icon, click you will enter Copilot Chat in IDE. We will learn how Copilot Chat helps us during the workshop.
+Notice the side bar from left-hand, there is a ![Screenshot 2023-09-29 at 12 16 59 pm](./images/WORKSHOP-img-9.png) icon, click you will enter Copilot Chat in IDE. We will learn how Copilot Chat helps us during the workshop.
 
-![Screenshot 2023-09-29 at 12 20 00 pm](https://github.com/dhruvg20-copilot/Copilot-Dev-Practices/assets/61316020/3303209a-9805-4e07-945d-e81359c3507f)
+![Screenshot 2023-09-29 at 12 20 00 pm](./images/WORKSHOP-img-5.png)
 
 
 ### :mag: Check out Copilot CLI
 
 Just like local VS Code, Codespaces also comes with terminal for command inputs. In this repository we already installed Copilot CLI. Try type something starting with `??`, for example, `?? list file`. Copilot CLI will return command suggestion. Feel free to accept or cancel using your keyboard arrows.
 
-![Screenshot 2023-09-29 at 12 04 21 pm](https://github.com/dhruvg20-copilot/Copilot-Dev-Practices/assets/61316020/e6412096-a4fb-43ee-94d2-f60d2a73007e)
+![Screenshot 2023-09-29 at 12 04 21 pm](./images/WORKSHOP-img-6.png)
 
 <hr/>
 <hr/>
@@ -191,7 +191,7 @@ One of our listers in New York city, has rebranded his Listing, and has requeste
 
 <p align="center">
   <br/>
-<img width="800" alt="image" src="https://github.com/dhruvg20-copilot/Copilot-Dev-Practices/assets/20143038/96c9a61a-696b-4b9a-b512-719182988dee">
+<img width="800" alt="image" src="./images/WORKSHOP-img-7.png">
 </p>
 
 <hr/>
@@ -206,7 +206,7 @@ Our Sister Company is using [IP2LOCATION](https://www.ip2location.com/) and for 
 
 <p align="center">
   <br/>
-<img width="500" alt="image" src="https://github.com/dhruvg20-copilot/Copilot-Dev-Practices/assets/20143038/30257ec3-c1e5-49c8-8fbb-f2ec8a0c1c67">
+<img width="500" alt="image" src="./images/WORKSHOP-img-8.png">
 </p>
 
 
