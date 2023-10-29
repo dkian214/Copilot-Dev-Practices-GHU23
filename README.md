@@ -23,17 +23,17 @@ In this workshop, you will:
 
 ## :mega: Prerequisites
 Before joining the workshop, there are a few items that you will need to install or bring with you.
-1. GitHub Account
-2. Accepted the Universe 23 Organization invite to your Workshop Project - `githubuniverseworkshops/Copilot-Dev-Practices-[your_handle]`
-3. If you have not received an invite for step 2, then process and do step 4 and 5. If you have received an invite and successfully accessed your Project, please skip to step 6.
-4. Use this template, and create a new repository in the same Organization to get all the features available. As seen below. 
+1. GitHub Account - Please have one ready or create before the workshop. 
+2. Accepted the Universe 23 Organization `githubuniverseworkshops` invite to your Workshop Project - `githubuniverseworkshops/Copilot-Dev-Practices-[your_handle]`
+3. If you have not received an invite for step 2, then proceed and do step 4 and 5. If you have received an invite and successfully accessed your Project - `githubuniverseworkshops/Copilot-Dev-Practices-[your_handle]`, please skip to step 6.
+4. Use this template, and create a new Project/Repository in the same Organization to get all the features available. As seen below. 
 <p align="center"><img width="500" alt="image" src="./images/image-1.png"></p>
-&nbsp;&nbsp;&nbsp;4. Give the new project the name same as the current Project with "-[your-github-handle]". 
+&nbsp;&nbsp;&nbsp;5. Give the new project the name same as the current Project with "-[your-github-handle]". 
 <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Example: Copilot-Dev-Practices-dhruvg20
 <br/><br/><p align="center"><img width="372" alt="image" src="./images/image-2.png"></p>
-&nbsp;&nbsp;&nbsp;5. Once you have created your Repository. Go ahead and create a new Codespaces by click the below seen "+" sign.
+&nbsp;&nbsp;&nbsp;6. Once you have access to your Project/Repository. Go ahead and create a new Codespaces by click the below seen "+" sign, in your Project/Repository
 <p align="center"><img width="500" alt="image" src="./images/image-3.png"></p>
-&nbsp;&nbsp;&nbsp;6. Please go through workshop details -
+&nbsp;&nbsp;&nbsp;7. Please go through workshop details -
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [WORKSHOP.md](./WORKSHOP.md)
 
