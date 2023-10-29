@@ -4,12 +4,12 @@
     1. [Start Copilot Chat in UI](#start-copilot-chat-in-ui)
     2. [Get Familiar with the Project](#get-familiar-with-the-project)
     3. [Explore Copilot for CLI in Codespaces](#explore-copilot-for-cli-in-codespaces)
-    4. [Loading data file into MongoDB](#loading-data-file-into-mongodb)
-    5. [Update frontend and backend port config](#update-frontend-and-backend-port-config)
-    6. [Start backend and front end services](#start-backend-and-front-end-services)
-    7. [Investigate backend URL 404 error](#investigate-backend-url-404-error)
-    8. [Fixing backend URL in code](#fixing-backend-url-in-code)
-    9. [Learn activity objectives and approach](#learn-activity-objectives-and-approach)
+    4. [Checking data file attached to MongoDB](#checking-data-file-attached-to-mongodb)
+    5. [Start backend and front end services](#start-backend-and-front-end-services)
+    6. [Learn activity objectives and approach](#learn-activity-objectives-and-approach)
+    7. [Locate the listing of wrong name](#locate-the-listing-of-wrong-name)
+    8. [Getting listing JSON data](#getting-listing-json-data)
+    9. [Update listing name and check](#update-listing-name-and-check) 
 2. [Activity 2: New Feature/Requirement](#activity-2-new-featurerequirement)
     1. [Getting activity summary](#getting-activity-summary)
     2. [Identify library and generate test code](#identify-library-and-generate-test-code)
@@ -22,6 +22,10 @@
     9. [Refresh site](#refresh-site)
     10. [Run script to create PR](#run-script-to-create-pr)
     11. [Generate PR description summary](#generate-pr-description-summary)
+3. [Activity 3: Writting Test Cases for 2 Activities](#activity-3-writting-test-cases-for-2-activities)
+    1. [Run npm test](#run-npm-test)
+    2. [Add test case 1](#add-test-case-1)
+    3. [Add test case 2](#add-test-case-2)
 
 # <h1 align="center">Activity 1: New Developer on the Project</h1>
 
@@ -40,13 +44,6 @@ A new converseation pops up on the right hand side
 
 ![Screenshot 2023-10-12 at 12 33 57 pm](./images/EXERCISE-img-3.png)
 
-
-Click ![Screenshot 2023-10-06 at 2 35 13 pm](./images/EXERCISE-img-4.png) to add reference <br >
-
-![Screenshot 2023-10-06 at 2 28 59 pm](./images/EXERCISE-img-5.png)
-
-:warning: You may not see the option `Docs` as this is under internal preview. We will cover them in a demo towards th end of this workshop
-
 Click ![Screenshot 2023-10-06 at 2 35 19 pm](./images/EXERCISE-img-6.png) will let you manage threads. You can create and manage multiple threads if you like
 
 Let's start using Copilot Chat in UI 🚙
@@ -54,10 +51,9 @@ Let's start using Copilot Chat in UI 🚙
 ## Get Familiar with the Project
 Firstly as a new developer, I'd like to understand more about this project. 
 
-It's great we have a few markdowns here. Add `PROJECT.md` as a reference
-1. Add a reference -> File
-2. In the prompt, scroll until you see `PROJECT.md`, select
-3. This reference will be used in the chat moving forwards
+It's great we have a few markdowns here. Add `WORKSHOP.md` as a reference
+1. Attach files or symbols -> search and select `WORKSHOP.md`
+2. This reference will be used in the chat moving forwards
 
 ![copilot_chat_select_file](./images/EXERCISE-img-7.gif)
 
@@ -65,78 +61,76 @@ It's great we have a few markdowns here. Add `PROJECT.md` as a reference
 Once done, asking Copilot Chat to explain the project.
 
 ```
-Explain the project?
+Summarise the WORKSHOP.md in bullet points?
 ```
 
 Keep asking additional questions, your reference stays unless you click to remove it.
-```
-Summarise the technical details?
-```
-```
-What all is needed for running the project?
-```
+
+- [ ] Summarise the WORKSHOP.md in bullet points?
+- [ ] Explain the project in bullet points?
+- [ ] Explain the project in bullet points?
+- [ ] Summarise the Technical Details in bullet points?
+- [ ] What all is needed for running the project in bullet points?
+- [ ] What is MongoDB database and collection name, in bullet points?
+- [ ] Which frontend file has the backend uri endpoint?
 
 Based on output from Copilot for Chat, we learnt that this is a MERN stack, let's get hands-on. We will leverage next tool: Copilot for CLI
 
+We have prepared a number of scripts which will help you running Copilot for CLI so you don't have to type yourself 🚀
+
 ## Explore Copilot for CLI in Codespaces
 
-Let's find how the setup of MERN going in Codespaces. In terminal, start typing
+In this secLet's find if Copilot for CLI is installed first. In terminal, start typing
 ```
+github-copilot-cli -V
+```
+
+If you don't get to see a version number returned. Run ths following to get it installed
+```
+./scripts/install-copilot-cli.sh
+```
+
+Let's try a few commands to check if some services are running. Open script `./scripts/copilot_cli_1.sh` manual or run `code ./scripts/copilot_cli_1.sh` in terminal
+
+You get to see two commands:
+
+```bash
 ?? Check if node and npm is installed?
-```
-The starting `??` is one of 3 syntaxes of Copilot for CLI, we are asking for a shell command that can confirm installation of both Node and NPM.
 
-We can see Copilot for CLI provided a suggestion, which we can choose to `Run`, `Revise` or `Cancel`. Go ahead with suggestion you will see the command output
-
-![copilot_cli_1](./images/EXERCISE-img-8.gif)
-
-Continue checking if MongoDB is running. This time, you were given a suggestion that looked working, but it is broken because `systemctl` is not supported in Codespaces and you were told to use `service` instead
-
-```
-?? Check if Mongodb service is running
+?? Check if Mongodb service running use service command?
 ```
 
-Refine our question and try asking again 
+The starting `??` is one of 3 syntaxes of Copilot for CLI. In command one, we are asking for a shell command that can confirm installation of both Node and NPM; In command two, we check if MongoDB is running.
+
+Now run the script by typing the following in terminal
 
 ```
-?? Check if Mongodb service is running using service command
+./scripts/copilot_cli_1.sh
 ```
 
-You should see MongoDB is running in our environment. And additional question
+You should see node and npm versions, and also that MongoDB is running in our environment.
 
-```
-?? Check if mongoimport tool is available?
-```
+## Checking data file attached to MongoDB
 
-Copilot for CLI will give us another command to check if Mongo import tool is installed, possitive.
+MongoDB requires a JSON formatted dataset to serve as content in our site. As a new Developer, I want to check if this datafile is loaded properly in my MongoDB setup
 
-## Loading data file into MongoDB
+Open script `./scripts/copilot_cli_2.sh` manual or run `code ./scripts/copilot_cli_2.sh` in terminal
 
-MongoDB requires a JSON formatted dataset to serve as content in our site. As a new Developer, what if I don't know where the datafile is and how to load it?
+You get to see this command:
 
-Let's get back to Copilot Chat in UI 🏃
-
-Resume our conversation, keeping the `PROJECT.md` reference there and try the following
-```
-What is the path of the MongoDB database json file?
-```
-```
-Please tell me the Mongodb collection name?
-```
-Ok, we are able to identify file path of JSON as well as collection name. This time we will use Copilot for CLI to help us getting the right command
-
-In Codespaces terminal, type:
-```
-?? mongodb import file=./mongodb-dataset/sample_airbnb.json, collection=listingsAndReviews
+```bash
+?? Print first 10 Mongodb database sample_airbnb and collection listingsAndReviews
 ```
 
-With that done, you may also noticed Copilot Chat do exist in Codespaces. Similar to Copilot Chat in UI, click to start a conversation. Because this time we want to do a bit of work in IDE. 
+The approach of checking is to see whether output of a few sample listing data would work. 
 
-## Update frontend and backend port config
-Asking Copilot Chat in Codespaces:
+Now run the script by typing the following in terminal
+
 ```
-What is the local uri and port for mongodb?
+./scripts/copilot_cli_2.sh
 ```
+
+You should see the output data in the command output. With that, let's get the envornment front end and backend up
 
 ## Start backend and front end services
 
@@ -157,66 +151,9 @@ cd backend && npm start
 cd frontend && npm start
 ```
 
-Upon completion of frontend starting, you will be prompt by Codespaces to open web URL in a new window, click to proceed on the one with port `3000`. Alternatively, find `PORTS` and click the little globe icon for port `3000`
+Upon completion of frontend starting, you will be prompt by Codespaces to open web URL in a new window, which displays all listings
 
-![Screenshot 2023-10-12 at 1 59 09 pm](./images/EXERCISE-img-11.png)
-
-You will see `Backend URL: NOT FOUND: 404` error. Don't worry, we will fix it together next 👀
-
-![Screenshot 2023-10-12 at 1 55 42 pm](./images/EXERCISE-img-12.png)
-
-
-## Investigate backend URL 404 error
-
-Now we got a 404 error, let's take a look at the message and copy the 404 URL in the message. 
-
-`https://shiny-acorn-v64jvpv96xwhp9g4-8080.app.github.dev`
-
-As part of Codespace initiation, every instance starts with a random name. This `shiny-acorn` does not match the one in our browser. 
-
-Any chance this could be hardcoded in our project? Possibly. Let's find it out. Head to your terminal `bash` (not `backend` or `frontend` as they have processes running in foreground) and run the following:
-
-```
-?? find string "shiny-acorn-v64jvpv96xwhp9g4-8080.app.github.dev" inside current folder except node_modules
-```
-
-This might take up to 30 seconds. You should be see result `/.frontend/src/http-common.js`. Now open that file in Codespaces.
-
-![Screenshot 2023-10-12 at 3 44 18 pm](./images/EXERCISE-img-13.png)
-
-This time let's try Copilot Chat in IDE. Similar to Copilot Chat in UI, we can add context alongside our questions. In IDE, we need to select exact line of code instead of an open file, then ask questions:
-
-![copilot_chat_ide_explain_code](./images/EXERCISE-img-14.gif)
-
-This `baseURL` catches our attention here. Checking the code we found it is hardcoded also. 
-
-Double checking using Copilot Chat in UI. Adding file `WORKSHOP.md`, then ask
-
-```
-Which frontend file has the backend uri endpoint?
-```
-
-Copilot Chat tells you that `./frontend/src/http-common.js` contains the backend uri endpoint definition. So we can safely update `baseURL`. 
-
-## Fixing backend URL in code
-
-Back to Codespaces and execute the following:
-- [ ] Head to `PORTS` next to `TERMINAL`
-- [ ] Copy the Forwarded Address indicating Port `8080`
-- [ ] Replace `baseURL` with this new URL
-- [ ] Don't forget to check the tailing `/api` is there
-
-![codespaces_update_baseurl](./images/EXERCISE-img-15.gif)
-
-We also need to change visibility of port `8080` to `public` in order to allow frontend to query:
-- [ ] Stay on `PORTS` section, right click port `8080`
-- [ ] Port Visibility -> Public
-
-<img width="625" alt="Screenshot 2023-10-12 at 4 08 58 pm" src="./images/EXERCISE-img-16.png">
-
-Switch to the web url tab, refresh the page, You should start seeing content loading up 🥳
-
-<img width="1536" alt="Screenshot 2023-10-12 at 4 11 54 pm" src="./images/EXERCISE-img-17.png">
+![all_listings](./images/EXERCISE-img-29.png)
 
 ## Learn activity objectives and approach
 
@@ -224,21 +161,85 @@ With the project up and running 🎉. We are ready to make some changes to the p
 
 Continue Copilot Chat in UI, with `WORKSHOP.md` selected, ask a few questions about Activity 1:
 
-```
-In Section Workshop's Different Developer Activities, summarise Activity 1 in bullet points?
-```
-```
-In Section Workshop's Different Developer Activities, Activity 1, summarise the fix / requirement for Activity 1 in bullet points?
+- [ ] In Section Workshop's Different Developer Activities, summarise Activity 1 in bullet points?
+- [ ] In Section Workshop's Different Developer Activities, Activity 1, summarise the fix / requirement for Activity 1 in bullet points?
+- [ ] What are different Frontend React Paths available?
+- [ ] What are different backend endpoints exposed and unexposed?
+
+## Locate the listing of wrong name
+
+Open script `./scripts/copilot_cli_3.sh` manual or run `code ./scripts/copilot_cli_3.sh` in terminal
+
+You get to see two command:
+
+```bash
+?? Get request to http://localhost:8080/api/model with query string search = url encoded UWS Brownstone Near Central Park and store the beautified response in file response.json
+
+?? In response.json print the key id inside listingsAndReviews array
 ```
 
-Continue with the following two questions. Keep 
+In command one, we are asking Copilot CLI to construct a API request with specific query string and response format and storing into `response.json`
+
+In command two, we are getting key id for further usage
+
+Now run the script by typing the following in terminal
 
 ```
-What are different Frontend React Paths available?
+./scripts/copilot_cli_3.sh
 ```
+
+The key id should be 102995. We will understand more about this particular listing in the next step
+
+## Getting listing JSON data
+
+Let's take a look at listing 102995 in browser. Open a new tab and copy your React App's URL. Then append the default path with `/listings/102995`
+
+You should be able to see a listing page.
+
+![listing_old_name](./images/EXERCISE-img-27.png)
+
+Open script `./scripts/copilot_cli_4.sh` manual or run `code ./scripts/copilot_cli_4.sh` in terminal
+
+You get to see this command:
+
+```bash
+?? Get request to http://localhost:8080/api/model/102995 and store the beautified response in file listing.json
 ```
-What are different backend endpoints exposed and unexposed?
+
+We are constructing another query for listing 102995 details, then store into `listing.json` to inspect further
+
+Now run the script by typing the following in terminal
+
 ```
+./scripts/copilot_cli_4.sh
+```
+
+Inspecting `listing.json`, we found that key `name` is what we need an update
+
+## Update listing name and check
+
+Open script `./scripts/copilot_cli_5.sh` manual or run `code ./scripts/copilot_cli_5.sh` in terminal
+
+You get to see this command:
+
+```bash
+?? Put request to http://localhost:8080/api/model/102995 with JSON data {"name": "UWS Brownstone Prime"}
+```
+
+Similar to last one, instead we are making a `PUT` request this time with correct name key value pair
+
+Now run the script by typing the following in terminal
+
+```
+./scripts/copilot_cli_5.sh
+```
+
+Once complete, switch to the listing UI and refresh. You will see listing name is now corrected.
+
+![listing_new_name](./images/EXERCISE-img-28.png)
+
+Congrats on completing Activity 1 🏅!
+
 
 # <h1 align="center">Activity 2: New Feature/Requirement</h1>
 
@@ -372,17 +373,28 @@ You will see a code block `START:TODO` and `END:TODO`, let's start coding with C
 //Find the geolocation using the IP input from the local file, and return ip, country and city
 ```
 
-Press `ENTER`, Use Copilot will start generating code, press `TAB` to accept, then `ENTER` to next line. You should end up this part like below
+Press `ENTER`, Use Copilot will start generating code, press `TAB` to accept, then `ENTER` to next line. 
+
+Keep pressing `ENTER` on empty line, Copilot will cover logging and returning of object both comment and code generation. You should see something like below:
+
 ```javascript
     try {        
         {
             //Find the geolocation using the IP input from the local file, and return ip, country and city
             result = ip2location.getAll(IP);
             returnObj = {
-                ip: result.ip,
+                ip: IP,
                 country: result.country_short,
                 city: result.city
             };
+
+            // Log debug information
+            if (debug) {
+                console.log(`${_func}: result -> ${JSON.stringify(returnObj)}`);
+            }
+
+            // Return the object
+            return returnObj;
         }        
 
     } catch (err) {
@@ -412,23 +424,28 @@ Wooa! Copilot generates some docs for you based on the new code we just added. I
 You final version of `IPLocation.js`
 
 ```javascript
+/**
+ * IP2Location module for geolocation.
+ * @module IP2Location
+ * @requires ip2location-nodejs
+ * @see {@link https://www.npmjs.com/package/ip2location-nodejs|ip2location-nodejs}
+ */
+
 // Import the IP2Location module
 const { IP2Location } = require("ip2location-nodejs");
-
-/**
- * Creates a new IP2Location object and exports a function for IP geolocation.
- * @module IP2Location
- */
 
 // Create a new IP2Location object
 const ip2location = new IP2Location();
 ip2location.open("./geolocation/IP2LOCATION-LITE-DB3.BIN");
 
 /**
- * Returns the geolocation information for a given IP address.
- * @function
+ * Function for IP geolocation.
+ * @function ipLoc
  * @param {string} IP - The IP address to geolocate.
- * @returns {Object} An object containing the IP address, country, and city.
+ * @returns {Object} An object containing the geolocation information for the given IP address.
+ * @property {string} ip - The IP address that was geolocated.
+ * @property {string} country - The country where the IP address is located.
+ * @property {string} city - The city where the IP address is located.
  */
 module.exports.ipLoc = function (IP) {
     // Define function-specific variables
@@ -446,10 +463,18 @@ module.exports.ipLoc = function (IP) {
             //Find the geolocation using the IP input from the local file, and return ip, country and city
             result = ip2location.getAll(IP);
             returnObj = {
-                ip: result.ip,
+                ip: IP,
                 country: result.country_short,
                 city: result.city
             };
+
+            // Log debug information
+            if (debug) {
+                console.log(`${_func}: result -> ${JSON.stringify(returnObj)}`);
+            }
+
+            // Return the object
+            return returnObj;
         }        
 
     } catch (err) {
@@ -457,6 +482,7 @@ module.exports.ipLoc = function (IP) {
         console.log(`${_func}: error -> ${err}`);
     }
 };
+
 ```
 ## Explain code in model.controller.js
 
@@ -479,6 +505,8 @@ Now we are getting close to completing all changes 🦾. One thing left is to up
 You will see a list of commented `x-forwarded-for-ip`, uncomment one of them so we can pass IP in the request header.
 
 ## Refresh Site
+
+Restart backend service by `Ctrl + c` then `npm start`
 
 Refreshing the site. Depending on which `x-forwarded-for-ip`, the listing is now shortlisted
 
@@ -508,3 +536,55 @@ You will notice description editor now also empowered with Copilot Icon. This is
 Copilot will take sometime to extract code changes, together with project contexts, and generate description ready for you!
 
 Once ready, create the PR and merge it and we are done in Activity 2 🎉
+
+# <h1 align="center">Activity 3: Writting Test Cases for 2 Activities</h1>
+
+## Run npm test
+
+In Codespaces, ensure your current folder is `backend`. Run the following to execute unit test
+
+```
+npm test
+```
+
+You will get to see a summary of test cases and result of each. Also you noticed there is a test file `test/endpoint.test.js` under `backend` folder.
+
+## Walk through `model.routes.js`
+
+Open test file `code app/routes/model.routes.js`
+
+You will see it requires `../controllers/model.controller.js` and it contains a couple of get functions. With one to return all listings and another to return a specific listing
+
+## Add test case 1
+
+Open test file `code test/endpoint.test.js`, search `//Test Case 1 - TODO:`
+
+Select this line or below, then key in `Cmd+i` to open Copilot command prompts. We are asking Copilot to generate test case this time via `/tests`. Enter the following:
+
+```
+/tests unit test - GET /api/model/{id} where id=102995, parse JSON response.text, and check name="UWS Brownstone Prime"
+```
+
+![generate_test_case_1](./images/EXERCISE-img-30.gif)
+
+Similar to the `/docs` experience, Copilot generates test case. Review and accept.
+
+Run `npm test` in terminal you will see how the newly added test case work
+
+## Add test case 2
+
+Stay on test file `code test/endpoint.test.js`, search `//Test Case 2 - TODO:`
+
+Select this line or below, then key in `Cmd+i` to open Copilot command prompts. We are asking Copilot to generate test case this time via `/tests`. Enter the following:
+
+```
+/tests unit test - GET /api/model/ set x-forwarded-for-ip header 8.210.96.219, parse JSON response.text, and loop through array listingsAndReviews
+```
+
+You will need to replace IP `8.210.96.219` depending on your choice of city in Activity 2
+
+![generate_test_case_2](./images/EXERCISE-img-31.gif)
+
+Again review the generated test case and accept.
+
+Re-run `npm test` to check test results
