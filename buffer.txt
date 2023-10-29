@@ -398,3 +398,4 @@ alias code_backend_routes='type code_backend_routes && cd_workshop && code ./bac
 alias code_backend_tests='type code_backend_tests && cd_workshop && code ./backend/test/endpoint.test.js'
 alias run_backend_tests='type run_backend_tests && cd_workshop && cd backend && npm test'
 alias run_backend_tests_done='type run_backend_tests_done && cd_workshop && ./scripts/progress_stage6.sh && cd backend && npm test'
+
