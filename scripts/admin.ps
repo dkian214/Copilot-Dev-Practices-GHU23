@@ -6,7 +6,7 @@
 
 # Variables
 $TARGET_REPO="Copilot-Dev-Practices-"
-$OWNER="dhruvg20-copilot"
+$OWNER="githubuniverseworkshops"
 $TEMPLATE_REPO="Copilot-Dev-Practices"
 $ACTION=$args[0]
 
@@ -94,6 +94,50 @@ if ($ACTION -eq "create"){
             --method POST /repos/$OWNER/$TARGET_REPO_NAME/issues `
             -f title="Post-requisite: This Repository would be deleted on 25th Nov 2023" `
             -f body="**Post-requisite:** This Repository would be deleted on 25th Nov 2023. Please create a backup of this Repository." `
+            -f "assignees[]=$handle" 
+    }
+}
+
+if ($ACTION -eq "issue-1"){
+#iterate through the workshop_handles array and print each handle
+    Write-Host "CREATE REPOS"
+    foreach ($handle in $workshop_handles) {
+        Write-Host $handle
+        $TARGET_REPO_NAME = $TEMPLATE_REPO+"-"+$handle
+        Write-Host $TARGET_REPO_NAME        
+
+        Write-Host "gh api --header 'Accept: application/vnd.github+json' `
+            --method POST /repos/$OWNER/$TARGET_REPO_NAME/issues `
+            -f title="Post-requisite: This Repository would be deleted on 25th Nov 2023" `
+            -f body="Post-requisite: This Repository would be deleted on 25th Nov 2023. Please create a backup of this Repository." `
+            -f assignees=[\"$handle\"]"
+
+        gh api --header 'Accept: application/vnd.github+json' `
+            --method POST /repos/$OWNER/$TARGET_REPO_NAME/issues `
+            -f title="Post-requisite: This Repository would be deleted on 25th Nov 2023" `
+            -f body="**Post-requisite:** This Repository would be deleted on 25th Nov 2023. Please create a backup of this Repository." `
+            -f "assignees[]=$handle" 
+    }
+}
+
+if ($ACTION -eq "issue-2"){
+#iterate through the workshop_handles array and print each handle
+    Write-Host "CREATE REPOS"
+    foreach ($handle in $workshop_handles) {
+        Write-Host $handle
+        $TARGET_REPO_NAME = $TEMPLATE_REPO+"-"+$handle
+        Write-Host $TARGET_REPO_NAME        
+
+        Write-Host "gh api --header 'Accept: application/vnd.github+json' `
+            --method POST /repos/$OWNER/$TARGET_REPO_NAME/issues `
+            -f title="Final - Post-requisite: This Repository would be deleted on 25th Nov 2023" `
+            -f body="Final - Post-requisite: This Repository would be deleted on 25th Nov 2023. Please create a backup of this Repository." `
+            -f assignees=[\"$handle\"]"
+
+        gh api --header 'Accept: application/vnd.github+json' `
+            --method POST /repos/$OWNER/$TARGET_REPO_NAME/issues `
+            -f title="Final - Post-requisite: This Repository would be deleted on 25th Nov 2023" `
+            -f body="**Final - Post-requisite:** This Repository would be deleted on 25th Nov 2023. Please create a backup of this Repository." `
             -f "assignees[]=$handle" 
     }
 }
