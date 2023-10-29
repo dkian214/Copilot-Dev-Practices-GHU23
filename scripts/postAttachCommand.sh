@@ -11,8 +11,10 @@ eval "$(github-copilot-cli alias -- "$0")"
 
 echo -e 'eval "$(github-copilot-cli alias -- "$0")"' >> ~/.bashrc
 
-alias cd_workshop='type cd_workshop && cd /workspaces/Copilot-Dev-Practices/'
-echo -e 'alias cd_workshop="type cd_workshop && cd /workspaces/Copilot-Dev-Practices/"' >> ~/.bashrc
+#alias cd_workshop='type cd_workshop && cd /workspaces/Copilot-Dev-Practices/'
+#echo -e 'alias cd_workshop="type cd_workshop && cd /workspaces/Copilot-Dev-Practices/"' >> ~/.bashrc
+alias cd_workshop='type cd_workshop && cd /workspaces/Copilot-Dev-Practices-${GITHUB_USER}/'
+echo -e 'alias cd_workshop="type cd_workshop && cd /workspaces/Copilot-Dev-Practices-${GITHUB_USER}/"' >> ~/.bashrc
 alias code_copilot_cli_1='type code_copilot_cli_1 && cd_workshop && code ./scripts/copilot_cli_1.sh'
 echo -e "alias code_copilot_cli_12='type code_copilot_cli_1 && cd_workshop && code ./scripts/copilot_cli_1.sh'" >> ~/.bashrc
 alias run_copilot_cli_1='type run_copilot_cli_1 && cd_workshop && ./scripts/copilot_cli_1.sh'
