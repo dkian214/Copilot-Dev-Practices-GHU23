@@ -17,7 +17,13 @@ Write-Host $ACTION
 
 #check if $ACTION is empty quit
 if ($ACTION -eq $null){
-    Write-Host "Please provide an action"
+    Write-Host "Please provide an action: `
+    create - create repos `
+    delete - delete repos `
+    issue-1 - create issue 1 `
+    issue-2 - create issue 2 `
+    close-all-issues - close all Progress issues `
+    "
     exit 1
 }
 #exit
@@ -159,6 +165,41 @@ if ($ACTION -eq "delete"){
         -H "Accept: application/vnd.github+json" `
         -H "X-GitHub-Api-Version: 2022-11-28" `
         /repos/$OWNER/$TARGET_REPO_NAME
+    }
+}
+
+if ($ACTION -eq "close-all-issues"){
+    Write-Host "close all Progress issues"
+
+    $OWNER="dhruvg20-copilot"
+    $REPO="Copilot-Dev-Practices-Progress"
+
+    $ISSUES  = gh api `
+    -H "Accept: application/vnd.github+json" `
+    -H "X-GitHub-Api-Version: 2022-11-28" `
+    /repos/$OWNER/$REPO/issues?state=open
+
+    $ISSUES = $ISSUES | ConvertFrom-Json
+    Write-Host $ISSUES.GetType()
+
+    foreach ($issue in $ISSUES) {
+        
+        $IssueNum = $issue.number;
+        Write-Host "issue.number: "+$IssueNum;
+        Write-Host "gh api `
+            --method PATCH `
+            -H "Accept: application/vnd.github+json" `
+            -H "X-GitHub-Api-Version: 2022-11-28" `
+            /repos/$OWNER/$REPO/issues/$IssueNum `
+            -f state='closed'"
+        
+        gh api `
+            --method PATCH `
+            -H "Accept: application/vnd.github+json" `
+            -H "X-GitHub-Api-Version: 2022-11-28" `
+            /repos/$OWNER/$REPO/issues/$IssueNum `
+            -f state='closed' 
+        
     }
 }
 
