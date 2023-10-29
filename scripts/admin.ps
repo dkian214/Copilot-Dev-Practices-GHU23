@@ -86,14 +86,14 @@ if ($ACTION -eq "create"){
 
         Write-Host "gh api --header 'Accept: application/vnd.github+json' `
             --method POST /repos/$OWNER/$TARGET_REPO_NAME/issues `
-            -f title="Post-requisite: This Repository would be deleted on 18th Nov 2023" `
-            -f body="Post-requisite: This Repository would be deleted on 18th Nov 2023. Please create a backup of this Repository." `
+            -f title="Post-requisite: This Repository would be deleted on 25th Nov 2023" `
+            -f body="Post-requisite: This Repository would be deleted on 25th Nov 2023. Please create a backup of this Repository." `
             -f assignees=[\"$handle\"]"
 
         gh api --header 'Accept: application/vnd.github+json' `
             --method POST /repos/$OWNER/$TARGET_REPO_NAME/issues `
-            -f title="Post-requisite: This Repository would be deleted on 18th Nov 2023" `
-            -f body="**Post-requisite:** This Repository would be deleted on 18th Nov 2023. Please create a backup of this Repository." `
+            -f title="Post-requisite: This Repository would be deleted on 25th Nov 2023" `
+            -f body="**Post-requisite:** This Repository would be deleted on 25th Nov 2023. Please create a backup of this Repository." `
             -f "assignees[]=$handle" 
     }
 }

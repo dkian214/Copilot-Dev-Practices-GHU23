@@ -162,6 +162,10 @@ Your Codespace instance should look like below once it is ready
 
 ![Screenshot 2023-09-29 at 12 16 10 pm](./images/WORKSHOP-img-4.png)
 
+📣 **Note** - Please close all the Open terminals inside your codespaces on starting it.  You can start a new code space by hitting the short cut **Ctrl + Shift + `**, OR by using the GUI option seen below:
+
+![Screenshot 2023-09-29 at 12 16 10 pm](./images/WORKSHOP-img-10.png)
+
 ### :speech_balloon: Check out Copilot Chat
 
 Notice the side bar from left-hand, there is a ![Screenshot 2023-09-29 at 12 16 59 pm](./images/WORKSHOP-img-9.png) icon, click you will enter Copilot Chat in IDE. We will learn how Copilot Chat helps us during the workshop.
