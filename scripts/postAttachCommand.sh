@@ -40,8 +40,8 @@ echo -e "alias code_copilot_cli_5='type code_copilot_cli_5 && cd_workshop && cod
 alias run_copilot_cli_5='type run_copilot_cli_5 && cd_workshop && ./scripts/progress_stage2.sh &&./scripts/copilot_cli_5.sh'
 echo -e "alias run_copilot_cli_5='type run_copilot_cli_5 && cd_workshop && ./scripts/progress_stage2.sh &&./scripts/copilot_cli_5.sh'" >> ~/.bashrc
 
-alias code_geoloc_test='type code_geoloc_test && cd_workshop && code ./backend/geolocation/IP2Location.js'
-echo -e "alias code_geoloc_test='type code_geoloc_test && cd_workshop && code ./backend/geolocation/IP2Location.js'" >> ~/.bashrc
+alias code_geoloc_test='type code_geoloc_test && cd_workshop && code ./backend/geolocation/test-logic.js'
+echo -e "alias code_geoloc_test='type code_geoloc_test && cd_workshop && code ./backend/geolocation/test-logic.js'" >> ~/.bashrc
 alias run_geoloc_test='type run_geoloc_test && cd_workshop && cd backend/geolocation && node test-logic.js'
 echo -e "alias run_geoloc_test='type run_geoloc_test && cd_workshop && cd backend/geolocation && node test-logic.js'" >> ~/.bashrc
 
