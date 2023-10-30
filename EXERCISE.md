@@ -34,9 +34,8 @@
 `When you are on this project in browser, you'd have noticed a little Copilot icon next to your GitHub Avatar, on top right corner. 
 
 Click to start a conversation with Copilot Chat
-![find_copilot_chat_ui](./images/EXERCISE-img-1.png)
 
-![Screenshot 2023-10-06 at 2 23 40 pm](./images/EXERCISE-img-2.png)
+![find_copilot_chat_ui](./images/EXERCISE-img-1.png)
 
 :warning: You must on this repository page under `githubuniverseworkshops` in order to see this icon
 
