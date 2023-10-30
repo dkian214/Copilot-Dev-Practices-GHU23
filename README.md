@@ -1,10 +1,13 @@
 <h1 align="center">GitHub Copilot lead to improvement in development practices</h1>
-<h5 align="center">@facilitators</h3>
+<h5 align="center">@jschanfung & @dhruvg20</h3>
 
 <p align="center">
+  <a href="#learning-objectives">Learning Objectives</a> •  
   <a href="#mega-prerequisites">Prerequisites</a> •  
-  <a href="#books-resources">Resources</a> •
-  <a href="#learning-objectives">Learning Objectives</a>
+  <a href="#construction-setup">Setup</a> •  
+  <a href="#mega-post-requisites">Post-requisites</a> •  
+  <a href="#-acknowledgement--open-source">Acknowledgement & Open source</a> •  
+  <a href="#books-resources">Resources</a>
 </p>
 
 > Please provide a description of your workshop.
@@ -42,6 +45,10 @@ Please head to the [Workshop Setup](./WORKSHOP.md#workshop-setup) Section of the
 
 ## :mega: Post-requisites
 This Repository would be deleted on 25th Nov 2023. Please create a backup of this Repository.
+
+## 🙏 Acknowledgement & Open source
+1. [MongoDB Sample AirBnB Listings Dataset](https://www.mongodb.com/docs/atlas/sample-data/sample-airbnb/)
+2. [IP2Location](https://www.ip2location.com/) & [IP2Location Node.js Library](https://ip2location-nodejs.readthedocs.io/en/latest/)
 
 ## :books: Resources
 - [GitHub Copilot - Your AI pair programmer](https://github.com/features/copilot)
