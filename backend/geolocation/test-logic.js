@@ -1,3 +1,5 @@
+// IP2Location - https://www.npmjs.com/package/ip2location-nodejs
+// IP2Location Node.js Library - https://ip2location-nodejs.readthedocs.io/en/latest/quickstart.html#query-geolocation-information-from-bin-database
 const {IP2Location} = require("ip2location-nodejs");
 
 let ip2location = new IP2Location();
