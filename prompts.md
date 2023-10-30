@@ -1,6 +1,5 @@
 ## Activity 1: New Developer on the Project 
 
-### Draft 3 - 14Oct23
 #### Running the Project
 1. **DotComChat** (REFERENCE: WORKSHOP.md)
     1. Summarise the WORKSHOP.md in bullet points?
@@ -41,8 +40,6 @@
 
 ## Activity 2: New Developer on the Project
 
-### Draft 2 - 12Oct23
-#### Building the Activity 2
 1.  **DotComChat** (REFERENCE: WORKSHOP.md) - Can you list all the bullet points from Activity 2?
     1. **CallOut** - IP2Location to be used
     2. **CallOut** - Local Geo Location Database is available for this workshop
@@ -50,23 +47,23 @@
 3. **IdeChat** - Share example nodejs geo location packages?
 4. **IdeChat** - Does npm have packages using IP2LOCATION?
 5. **IdeChat** - From ip2location NodeJs - Query geolocation information from Local BIN database
-    1. **Step** - Add the suggested code to test.js
-    2. **IdeChat** - Share the link to npm ip2location-nodejs documentation - [https://www.npmjs.com/package/ip2location-nodejs](https://www.npmjs.com/package/ip2location-nodejs)
-    3. **Step** - IP2Location Developer Documentation - Query geolocation information from BIN database - [https://ip2location-nodejs.readthedocs.io/en/latest/quickstart.html#query-geolocation-information-from-bin-database](https://ip2location-nodejs.readthedocs.io/en/latest/quickstart.html#query-geolocation-information-from-bin-database) -> **SAVE FILE** -> `/backend/geolocation/test.js`
+    1. **IdeChat** - Share the link to npm ip2location-nodejs documentation - [https://www.npmjs.com/package/ip2location-nodejs](https://www.npmjs.com/package/ip2location-nodejs)
+    2. **Step** - IP2Location Developer Documentation - Query geolocation information from BIN database - [https://ip2location-nodejs.readthedocs.io/en/latest/quickstart.html#query-geolocation-information-from-bin-database](https://ip2location-nodejs.readthedocs.io/en/latest/quickstart.html#query-geolocation-information-from-bin-database)
+    3. **Step** - `code_geoloc_test` OR Open the `/backend/geolocation/test-logic.js`
     4. **CallOut** - Geo Location File Path - `./geolocation/IP2LOCATION-LITE-DB3.BIN`
-    5. **Step** - Run the test, and save the Result into a test_result.json
-6. **Step** - `code_backend_geo_IP2Loc` OR Open the `\backend\geolocation\IP2Location.js` Search in the file `START:TODO`, and select the code block below it
-    1. **CallOut** - Keep the file `test.js` open in a Tab, for appropriate context to built 
-    2. **DevPrompt** - //Find the geolocation using the IP input from the local file, and return ip, country and city
+    5. **Step** - `run_geoloc_test` OR run the `/backend/geolocation/test-logic.js`
+1. **Step** - `code_backend_geo_IP2Loc` OR Open the `\backend\geolocation\IP2Location.js` Search in the file `START:TODO`, and select the code block below it
+    1. **CallOut** - Keep the file `test-logic.js` open in a Tab, for appropriate context to built 
+    2. **DevPrompt** - //Find the geolocation using the IP input from the local file, and return ip and city
     3. **Dev** `Window+I` `Cmd+I` -> `/doc`
-7. **Step** - `code_backend_controller` OR Open the `/backend/app/controllers\model.controller.js` Search in the file `START:TODO`, and select the code block below it
+1. **Step** - `code_backend_controller` OR Open the `/backend/app/controllers\model.controller.js` Search in the file `START:TODO`, and select the code block below it
     1. **Dev** `Window+I` `Cmd+I` -> `/explain`
-8. **IdeChat** (REFERENCE: WORKSHOP.md) - Which frontend file has the backend uri endpoint?
-9. **Step** - `code_frontend_http-common` OR Open `/frontend/src/http-common.js`
+1. **IdeChat** (REFERENCE: WORKSHOP.md) - Which frontend file has the backend uri endpoint?
+1. **Step** - `code_frontend_http-common` OR Open `/frontend/src/http-common.js`
     1. **Step** - Uncomment and pass the different location's "x-forwarded-for-ip" headers to the backend
-10. **Step** - Refresh the React App's URL to see if you seeing Geo Location based listing
-11. **Open** - `code_branch_push` OR `code ./scripts/git_branch_push.sh` -> **Explain** -> **Run** - `run_branch_push` OR `./scripts/git_branch_push.sh` - Create a new branch and push to Origin
-12. **DotComPR** - Let us run `/summary` to the GitHub Copilot generate the summary for us out of the box
+1. **Step** - Refresh the React App's URL to see if you seeing Geo Location based listing
+1. **Open** - `code_branch_push` OR `code ./scripts/git_branch_push.sh` -> **Explain** -> **Run** - `run_branch_push` OR `./scripts/git_branch_push.sh` - Create a new branch and push to Origin
+1. **DotComPR** - Let us run `/summary` to the GitHub Copilot generate the summary for us out of the box
 
 ## Activity 3: Writing a Test cases for 2 activities
 1. **Step** -  Inside `/backend` folder, run `npm test` to show testing running

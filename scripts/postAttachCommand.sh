@@ -39,6 +39,12 @@ alias code_copilot_cli_5='type code_copilot_cli_5 && cd_workshop && code ./scrip
 echo -e "alias code_copilot_cli_5='type code_copilot_cli_5 && cd_workshop && code ./scripts/copilot_cli_5.sh'" >> ~/.bashrc
 alias run_copilot_cli_5='type run_copilot_cli_5 && cd_workshop && ./scripts/progress_stage2.sh &&./scripts/copilot_cli_5.sh'
 echo -e "alias run_copilot_cli_5='type run_copilot_cli_5 && cd_workshop && ./scripts/progress_stage2.sh &&./scripts/copilot_cli_5.sh'" >> ~/.bashrc
+
+alias code_geoloc_test='type code_geoloc_test && cd_workshop && code ./backend/geolocation/IP2Location.js'
+echo -e "alias code_geoloc_test='type code_geoloc_test && cd_workshop && code ./backend/geolocation/IP2Location.js'" >> ~/.bashrc
+alias run_geoloc_test='type run_geoloc_test && cd_workshop && cd backend/geolocation && node test-logic.js'
+echo -e "alias run_geoloc_test='type run_geoloc_test && cd_workshop && cd backend/geolocation && node test-logic.js'" >> ~/.bashrc
+
 alias code_backend_geo_IP2Loc='type code_backend_geo_IP2Loc && cd_workshop && code ./backend/geolocation/IP2Location.js'
 echo -e "alias code_backend_geo_IP2Loc='type code_backend_geo_IP2Loc && cd_workshop && code ./backend/geolocation/IP2Location.js'" >> ~/.bashrc
 alias code_backend_controller='type code_backend_controller && cd_workshop && code ./backend/app/controllers/model.controller.js'
