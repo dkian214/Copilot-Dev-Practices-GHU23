@@ -173,9 +173,9 @@ Notice the side bar from left-hand, there is a ![Screenshot 2023-09-29 at 12 16 
 ![Screenshot 2023-09-29 at 12 20 00 pm](./images/WORKSHOP-img-5.png)
 
 
-### :mag: Check out Copilot CLI
+### :mag: Check out Copilot for CLI
 
-Just like local VS Code, Codespaces also comes with terminal for command inputs. In this repository we already installed Copilot CLI. Try type something starting with `??`, for example, `?? list file`. Copilot CLI will return command suggestion. Feel free to accept or cancel using your keyboard arrows.
+Just like local VS Code, Codespaces also comes with terminal for command inputs. In this repository we already installed Copilot for CLI. Try type something starting with `??`, for example, `?? list file`. Copilot for CLI will return command suggestion. Feel free to accept or cancel using your keyboard arrows.
 
 ![Screenshot 2023-09-29 at 12 04 21 pm](./images/WORKSHOP-img-6.png)
 

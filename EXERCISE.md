@@ -1,7 +1,7 @@
 # Table of Sections
 
 1. [Activity 1: New Developer on the Project](#activity-1-new-developer-on-the-project)
-    1. [Start Copilot Chat in UI](#start-copilot-chat-in-ui)
+    1. [Start Copilot Chat in GitHub](#start-copilot-chat-in-github)
     2. [Get Familiar with the Project](#get-familiar-with-the-project)
     3. [Explore Copilot for CLI in Codespaces](#explore-copilot-for-cli-in-codespaces)
     4. [Checking data file attached to MongoDB](#checking-data-file-attached-to-mongodb)
@@ -29,11 +29,11 @@
 
 # <h1 align="center">Activity 1: New Developer on the Project</h1>
 
-## Start Copilot Chat in UI
+## Start Copilot Chat in GitHub
 
-`When you are on this project in browser, you'd have noticed a little Copilot icon next to your GitHub Avatar, on top right corner. 
+When you are on this project in browser, you'd have noticed a little Copilot icon next to your GitHub Avatar, on top right corner. 
 
-Click to start a conversation with Copilot Chat
+Click to start a conversation with Copilot Chat in GitHub
 
 ![find_copilot_chat_ui](./images/EXERCISE-img-1.png)
 
@@ -45,19 +45,19 @@ A new converseation pops up on the right hand side
 
 Click ![Screenshot 2023-10-06 at 2 35 19 pm](./images/EXERCISE-img-6.png) will let you manage threads. You can create and manage multiple threads if you like
 
-Let's start using Copilot Chat in UI 🚙
+Let's start using Copilot Chat in GitHub 🚙
 
 ## Get Familiar with the Project
 Firstly as a new developer, I'd like to understand more about this project. 
 
 It's great we have a few markdowns here. Add `WORKSHOP.md` as a reference
 1. Attach files or symbols -> search and select `WORKSHOP.md`
-2. This reference will be used in the chat moving forwards
+2. This reference will be used by Copilot Chat in GitHub moving forward
 
 ![copilot_chat_select_file](./images/EXERCISE-img-7.gif)
 
 
-Once done, asking Copilot Chat to explain the project.
+Once done, asking Copilot Chat in GitHub to explain the project.
 
 ```
 Summarise the WORKSHOP.md in bullet points?
@@ -73,16 +73,17 @@ Keep asking additional questions, your reference stays unless you click to remov
 - [ ] What is MongoDB database and collection name, in bullet points?
 - [ ] Which frontend file has the backend uri endpoint?
 
-Based on output from Copilot for Chat, we learnt that this is a MERN stack, let's get hands-on. We will leverage next tool: Copilot for CLI
+Based on output from Copilot Chat in GitHub, we learnt that this is a MERN stack, let's get hands-on. We will leverage next tool: Copilot for CLI
 
 We have prepared a number of scripts which will help you running Copilot for CLI so you don't have to type yourself 🚀
 
 ## Explore Copilot for CLI in Codespaces
 
-In this secLet's find if Copilot for CLI is installed first. In terminal, start typing
+In this section, let's find if Copilot for CLI is installed first. In terminal, start typing
 ```
 github-copilot-cli -V
 ```
+:warning: Please open a separate bash inside terminal in order to properly run Copilot for CLI
 
 If you don't get to see a version number returned. Run ths following to get it installed
 ```
@@ -158,7 +159,7 @@ Upon completion of frontend starting, you will be prompt by Codespaces to open w
 
 With the project up and running 🎉. We are ready to make some changes to the project. How long did you take to get familiar with a new project last time?
 
-Continue Copilot Chat in UI, with `WORKSHOP.md` selected, ask a few questions about Activity 1:
+Continue Copilot Chat in GitHub, with `WORKSHOP.md` selected, ask a few questions about Activity 1:
 
 - [ ] In Section Workshop's Different Developer Activities, summarise Activity 1 in bullet points?
 - [ ] In Section Workshop's Different Developer Activities, Activity 1, summarise the fix / requirement for Activity 1 in bullet points?
@@ -177,7 +178,7 @@ You get to see two command:
 ?? In response.json print the key id inside listingsAndReviews array
 ```
 
-In command one, we are asking Copilot CLI to construct a API request with specific query string and response format and storing into `response.json`
+In command one, we are asking Copilot for CLI to construct a API request with specific query string and response format and storing into `response.json`
 
 In command two, we are getting key id for further usage
 
@@ -244,7 +245,7 @@ Congrats on completing Activity 1 🏅!
 
 ## Getting activity summary
 
-In Copilot Chat Browser, select `WORKSHOP.md` then ask 
+Open Copilot Chat in GitHub, select `WORKSHOP.md` then ask 
 ```
 Can you list all the bullet points from Activity 2?
 ```
@@ -254,7 +255,7 @@ Let's build with Copilot in Codespaces
 
 ## Identify library and generate test code
 
-In Codespaces, use Copilot Chat(IDE) to start exploring code. We'd like to get some solid ground first:
+In Codespaces, use Copilot Chat in IDE to start exploring code. We'd like to get some solid ground first:
 ```
 Share example nodejs geo location packages?
 ```
@@ -283,7 +284,7 @@ console.log(result);
 
 ## Improve test code to function
 
-We'd like to get more how-tos in the next step, and it's time find some documentation about `IP2Location`. Ask Copilot Chat:
+We'd like to get more how-tos in the next step, and it's time find some documentation about `IP2Location`. In Codespaces, ask Copilot Chat in IDE:
 ```
 Share the link to npm ip2location-nodejs documentation
 ```
@@ -318,7 +319,7 @@ ip2location.close();
 
 ## Run the test code
 
-We can run a quick test on this `test.js`, further by saving the result to a file to inspect. Try the following with Copilot CLI:
+We can run a quick test on this `test.js`, further by saving the result to a file to inspect. Try the following with Copilot for CLI:
 ```
 ?? run ./backend/geolocation/test.js and save result into ./backend/geolocation/test_result.json
 ```
@@ -493,7 +494,7 @@ Select the code block below it, then key in `Cmd+I`, type `/explain` then enter.
 
 ![Screenshot 2023-10-25 at 2 10 11 am](./images/EXERCISE-img-24.png)
 
-The command `/explain` is passed to Copilot Chat for an answer. Very handy isn't it?
+The command `/explain` is passed to Copilot Chat in IDE for an answer. Very handy isn't it?
 
 ![Screenshot 2023-10-25 at 2 10 44 am](./images/EXERCISE-img-25.png)
 
@@ -570,6 +571,8 @@ Similar to the `/docs` experience, Copilot generates test case. Review and accep
 
 Run `npm test` in terminal you will see how the newly added test case work
 
+:information_source: It's OK your unit test fails with generated code.
+
 ## Add test case 2
 
 Stay on test file `code test/endpoint.test.js`, search `//Test Case 2 - TODO:`
@@ -586,4 +589,8 @@ You will need to replace IP `8.210.96.219` depending on your choice of city in A
 
 Again review the generated test case and accept.
 
-Re-run `npm test` to check test results
+Re-run `npm test` to see that a new unit test got added.
+
+:information_source: It's OK your unit test fails with generated code.
+
+Congratulations on completing Activity 3 :mortar_board:

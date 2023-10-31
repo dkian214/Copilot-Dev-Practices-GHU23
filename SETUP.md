@@ -33,9 +33,9 @@ Notice the side bar from left-hand, there is a ![Screenshot 2023-09-29 at 12 16 
 ![Screenshot 2023-09-29 at 12 20 00 pm](https://github.com/dhruvg20-copilot/Copilot-Dev-Practices/assets/61316020/3303209a-9805-4e07-945d-e81359c3507f)
 
 
-### :mag: Check out Copilot CLI
+### :mag: Check out Copilot for CLI
 
-Just like local VS Code, Codespaces also comes with terminal for command inputs. In this repository we already installed Copilot CLI. Try type something starting with `??`, for example, `?? list file`. Copilot CLI will return command suggestion. Feel free to accept or cancel using your keyboard arrows.
+Just like local VS Code, Codespaces also comes with terminal for command inputs. In this repository we already installed Copilot for CLI. Try type something starting with `??`, for example, `?? list file`. Copilot for CLI will return command suggestion. Feel free to accept or cancel using your keyboard arrows.
 
 ![Screenshot 2023-09-29 at 12 04 21 pm](https://github.com/dhruvg20-copilot/Copilot-Dev-Practices/assets/61316020/e6412096-a4fb-43ee-94d2-f60d2a73007e)
 
