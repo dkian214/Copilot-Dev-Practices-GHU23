@@ -26,6 +26,8 @@ if ($ACTION -eq $null){
     close-all-issues - close all Progress issues `
     add-users-copilot - activate copilot for all users `
     remove-users-copilot - deactivate copilot for all users `
+    add-users-codespace - activate codespace for all users `
+    remove-users-codespace - deactivate codespace for all users `
     "
     exit 1
 }
@@ -247,6 +249,51 @@ if ($ACTION -eq "remove-users-copilot"){
             -H "Accept: application/vnd.github+json" `
             -H "X-GitHub-Api-Version: 2022-11-28" `
             /orgs/$OWNER/copilot/billing/selected_users `
+            -f "selected_usernames[]=${handle}"
+    }
+}
+
+if ($ACTION -eq "add-users-codespace"){
+    Write-Host "activate codespace for all users"
+    foreach ($handle in $workshop_handles) {
+        Write-Host $handle
+
+        Write-Host 'gh api `
+            --method POST `
+            -H "Accept: application/vnd.github+json" `
+            -H "X-GitHub-Api-Version: 2022-11-28" `
+            /orgs/${OWNER}/codespaces/access/selected_users `
+            -f "selected_usernames[]=${handle}"`'
+
+        gh api `
+            --method POST `
+            -H "Accept: application/vnd.github+json" `
+            -H "X-GitHub-Api-Version: 2022-11-28" `
+            /orgs/$OWNER/codespaces/access/selected_users `
+            -f "selected_usernames[]=${handle}"
+    }
+
+}
+
+if ($ACTION -eq "remove-users-codespace"){
+    Write-Host "deactivate codespace for all users"
+    foreach ($handle in $workshop_handles) {
+        Write-Host $handle
+
+        echo "selected_usernames[]=${handle}"
+
+        echo 'gh api `
+            --method DELETE `
+            -H "Accept: application/vnd.github+json" `
+            -H "X-GitHub-Api-Version: 2022-11-28" `
+            /orgs/${OWNER}/codespaces/access/selected_users `
+            -f "selected_usernames[]='$handle'"'
+
+        gh api `
+            --method DELETE `
+            -H "Accept: application/vnd.github+json" `
+            -H "X-GitHub-Api-Version: 2022-11-28" `
+            /orgs/$OWNER/codespaces/access/selected_users `
             -f "selected_usernames[]=${handle}"
     }
 }
