@@ -26,7 +26,7 @@ In this workshop, you will:
 
 ## :mega: Prerequisites
 Before joining the workshop, there are a few items that you will need to install or bring with you.
-1. GitHub Account - Please have one ready or create before the workshop. 
+1. GitHub Account - Please have one ready or create before the workshop. **This handle must be a public github account registered via github.com**
 2. Accepted the Universe 23 Organization `githubuniverseworkshops` invite to your Workshop Project - `githubuniverseworkshops/Copilot-Dev-Practices-[your_handle]`
 3. If you have not received an invite for step 2, then proceed and do step 4 and 5. If you have received an invite and successfully accessed your Project - `githubuniverseworkshops/Copilot-Dev-Practices-[your_handle]`, please skip to step 6.
 4. Use this template, and create a new Project/Repository in the same Organization to get all the features available. As seen below. 
@@ -39,6 +39,10 @@ Before joining the workshop, there are a few items that you will need to install
 &nbsp;&nbsp;&nbsp;7. Please go through workshop details -
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [WORKSHOP.md](./WORKSHOP.md)
+
+&nbsp;&nbsp;&nbsp;8. Access to step-by-step guide -
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [EXERCISE.md](./EXERCISE.md)
 
 ## :construction: Setup
 Please head to the [Workshop Setup](./WORKSHOP.md#workshop-setup) Section of the [WORKSHOP.md](./WORKSHOP.md) to initialise your workshop environment.
