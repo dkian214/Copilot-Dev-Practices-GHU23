@@ -8,10 +8,10 @@
     4. What all is needed for running the project in bullet points?
     5. What is MongoDB database and collection name, in bullet points? **Copy** -> notes.txt
     6. Which frontend file has the backend uri endpoint? **Copy** -> notes.txt
-2. **CLI** - Check if Copilot CLI is installed running `github-copilot-cli -V` 
-    1. NO - Install Copilot CLI by running - `./scripts/install-copilot-cli.sh`
+2. **CLI** - Check if Copilot in the CLI is installed running `github-copilot-cli -V` 
+    1. NO - Install Copilot in the CLI by running - `./scripts/install-copilot-cli.sh`
     2. Run **??**    
-    3. NO - Start Copilot CLI by running - `./scripts/start-copilot-cli.sh`
+    3. NO - Start Copilot in the CLI by running - `./scripts/start-copilot-cli.sh`
 3. **Open** - `code_copilot_cli_1` OR `code ./scripts/copilot_cli_1.sh` -> **Explain** -> **Run** - `run_copilot_cli_1` OR `./scripts/copilot_cli_1.sh`
     1. **??** Check if node and npm is installed?
     2. **??** Check if Mongodb service running use service command?

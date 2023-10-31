@@ -3,7 +3,7 @@
 1. [Activity 1: New Developer on the Project](#activity-1-new-developer-on-the-project)
     1. [Start Copilot Chat in GitHub](#start-copilot-chat-in-github)
     2. [Get Familiar with the Project](#get-familiar-with-the-project)
-    3. [Explore Copilot for CLI in Codespaces](#explore-copilot-for-cli-in-codespaces)
+    3. [Explore Copilot in the CLI inside Codespaces](#explore-copilot-in-the-cli-inside-codespaces)
     4. [Checking data file attached to MongoDB](#checking-data-file-attached-to-mongodb)
     5. [Start backend and front end services](#start-backend-and-front-end-services)
     6. [Learn activity objectives and approach](#learn-activity-objectives-and-approach)
@@ -73,17 +73,17 @@ Keep asking additional questions, your reference stays unless you click to remov
 - [ ] What is MongoDB database and collection name, in bullet points?
 - [ ] Which frontend file has the backend uri endpoint?
 
-Based on output from Copilot Chat in GitHub, we learnt that this is a MERN stack, let's get hands-on. We will leverage next tool: Copilot for CLI
+Based on output from Copilot Chat in GitHub, we learnt that this is a MERN stack, let's get hands-on. We will leverage next tool: Copilot in the CLI
 
-We have prepared a number of scripts which will help you running Copilot for CLI so you don't have to type yourself 🚀
+We have prepared a number of scripts which will help you running Copilot in the CLI so you don't have to type yourself 🚀
 
-## Explore Copilot for CLI in Codespaces
+## Explore Copilot in the CLI inside Codespaces
 
-In this section, let's find if Copilot for CLI is installed first. In terminal, start typing
+In this section, let's find if Copilot in the CLI is installed first. In terminal, start typing
 ```
 github-copilot-cli -V
 ```
-:warning: Please open a separate bash inside terminal in order to properly run Copilot for CLI
+:warning: Please open a separate bash inside terminal in order to properly run Copilot in the CLI
 
 If you don't get to see a version number returned. Run ths following to get it installed
 ```
@@ -100,7 +100,7 @@ You get to see two commands:
 ?? Check if Mongodb service running use service command?
 ```
 
-The starting `??` is one of 3 syntaxes of Copilot for CLI. In command one, we are asking for a shell command that can confirm installation of both Node and NPM; In command two, we check if MongoDB is running.
+The starting `??` is one of 3 syntaxes of Copilot in the CLI. In command one, we are asking for a shell command that can confirm installation of both Node and NPM; In command two, we check if MongoDB is running.
 
 Now run the script by typing the following in terminal
 
@@ -178,7 +178,7 @@ You get to see two command:
 ?? In response.json print the key id inside listingsAndReviews array
 ```
 
-In command one, we are asking Copilot for CLI to construct a API request with specific query string and response format and storing into `response.json`
+In command one, we are asking Copilot in the CLI to construct a API request with specific query string and response format and storing into `response.json`
 
 In command two, we are getting key id for further usage
 
@@ -319,7 +319,7 @@ ip2location.close();
 
 ## Run the test code
 
-We can run a quick test on this `test.js`, further by saving the result to a file to inspect. Try the following with Copilot for CLI:
+We can run a quick test on this `test.js`, further by saving the result to a file to inspect. Try the following with Copilot in the CLI:
 ```
 ?? run ./backend/geolocation/test.js and save result into ./backend/geolocation/test_result.json
 ```
