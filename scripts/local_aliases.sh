@@ -1,8 +1,5 @@
 #!/bin/bash
 
-eval "$(github-copilot-cli alias -- "$0")"
-#echo -e 'eval "$(github-copilot-cli alias -- "$0")"' >> ~/.bashrc
-
 export GITHUB_USER="dhruvg20" && echo $GITHUB_USER
 
 alias cd_workshop='type cd_workshop && cd '${HOME}'/Copilot-Dev-Practices-'${GITHUB_USER}'/'
